@@ -6,17 +6,17 @@ on:
 
 jobs:
     build:
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
     
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-         
-      - name: Install and build
-        run: yarn install && yarn build 
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v1
+          
+        - name: Install and build
+          run: yarn install && yarn build 
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: develop
-          folder: build
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4.3.3
+          with:
+            branch: develop
+            folder: build
