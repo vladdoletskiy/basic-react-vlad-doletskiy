@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "yarn lint:style && yarn lint:deps && yarn lint:ts",
-    "lint:style": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:style": "eslint src --fix --ext .js,.jsx,.ts,.tsx",
     "lint:deps": "depcruise --config .dependency-cruiser.js src --output-type err-long",
     "lint:ts": "tsc --noEmit"
   },
