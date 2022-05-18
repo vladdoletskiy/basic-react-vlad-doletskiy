@@ -1,0 +1,31 @@
+name: Deploy
+
+
+on:
+  pull_request:
+    branches: [ 'develop' ]
+    types:
+        - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+      build:
+      runs-on: ubuntu-latest
+
+      strategy:
+      matrix:
+      node-version: [16.15.0]
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v1
+         
+        - name: Install and build
+          run: yarn install && yarn build 
+
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4.3.3
+          with:
+            branch: develop
+            folder: build
+
