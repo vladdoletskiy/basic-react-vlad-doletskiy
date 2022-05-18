@@ -2,15 +2,12 @@ name: Deploy
 
 on:
   push:
-    branches: [ 'develop' ]
+    branches: [ develop ]
 
 jobs:
       build:
       runs-on: ubuntu-latest
-
-      strategy:
-      matrix:
-      node-version: [16.15.0]
+    
       steps:
         - name: Checkout
           uses: actions/checkout@v1
@@ -23,4 +20,3 @@ jobs:
           with:
             branch: develop
             folder: build
-
