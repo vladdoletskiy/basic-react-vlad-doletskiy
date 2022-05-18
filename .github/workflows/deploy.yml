@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: action/checkout@v1
+        uses: action/checkout@v3
 
       - name: install and build
         run: yarn install && yarn build
