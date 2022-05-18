@@ -5,18 +5,18 @@ on:
     branches: [ develop ]
 
 jobs:
-      build:
-      runs-on: ubuntu-latest
+    build:
+    runs-on: ubuntu-latest
     
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
          
-        - name: Install and build
-          run: yarn install && yarn build 
+      - name: Install and build
+        run: yarn install && yarn build 
 
-        - name: Deploy
-          uses: JamesIves/github-pages-deploy-action@v4.3.3
-          with:
-            branch: develop
-            folder: build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: develop
+          folder: build
