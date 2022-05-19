@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build-gh-pages": "tsc && vite build --base=/init-app/",
     "preview": "vite preview",
     "lint": "yarn lint:style && yarn lint:deps && yarn lint:ts",
     "lint:style": "eslint src --fix --ext .js,.jsx,.ts,.tsx",
