@@ -1,29 +1,20 @@
-name: Deploy Pages
-
-on: 
-  push:
-    brunches:
-      - 'develop'
-
+name: Build and Deploy
+on: [push]
 jobs:
-  build:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
-      - name: install and build
-        run: yarn install && yarn build
+      - name: Install and Build 
+        run: |
+          yarn install
+          yarn build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          branch: develop 
+          branch: gh-pages
           folder: build
