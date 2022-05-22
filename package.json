@@ -1,11 +1,12 @@
 {
-  "name": "init-app",
+  "name": "dg-basic-react",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "prettier": "prettier --write .",
     "lint": "yarn lint:style && yarn lint:deps && yarn lint:ts",
     "lint:style": "eslint src --fix --ext .js,.jsx,.ts,.tsx",
     "lint:deps": "depcruise --config .dependency-cruiser.js src --output-type err-long",
