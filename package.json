@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build-gh-pages": "tsc && vite build --base=/dg-basic-react/",
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "lint": "yarn lint:style && yarn lint:deps && yarn lint:ts",
