@@ -1,9 +1,8 @@
 name: Build and Deploy
 on:
   pull_request:
-    branches:
-      - feature/gh-actions
-    types: [closed]
+    branches: [ develop ]
+    types: [ closed ]
 
 jobs:
   build-and-deploy:
