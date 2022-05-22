@@ -1,7 +1,7 @@
 name: Build and Deploy
 on:
   push:
-    branches: [feature/ci_cd]
+    branches: [develop]
 
 jobs:
   build-and-deploy:
