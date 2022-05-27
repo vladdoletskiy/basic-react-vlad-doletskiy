@@ -9,18 +9,29 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface IHeaderProps {}
-const pages = ['Profile', 'Edit Profile'];
+
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const navToProfile = () => {
+    handleCloseNavMenu();
+    navigate('/profile');
+  };
+  const navToEdit = () => {
+    handleCloseNavMenu();
+    navigate('/edit');
   };
 
   return (
@@ -73,11 +84,10 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Typography onClick={navToProfile}>PROFILE</Typography>
+                <Typography onClick={navToEdit}>EDIT PROFILE</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -98,15 +108,15 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
             Basic React
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, mb: 1.6, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              onClick={navToProfile}
+              sx={{ my: 2, mb: 1.6, color: 'white', display: 'block' }}
+            >
+              Profile
+            </Button>
+            <Button onClick={navToEdit} sx={{ my: 2, mb: 1.6, color: 'white', display: 'block' }}>
+              Edit Profile
+            </Button>
           </Box>
           <Button color="inherit">Login</Button>
         </Toolbar>
