@@ -13,7 +13,7 @@ dist-ssr
 *.local
 .yarnrc.yml
 yarn.lock
-
+.yarn/
 
 .vscode/*
 !.vscode/extensions.json
