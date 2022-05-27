@@ -2,6 +2,7 @@ import Form from './Form';
 import Header from './Header';
 import Profile from './Profile';
 import Container from '@mui/material/Container';
+import Home from './Home';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Header />
       <Container maxWidth="md">
         {/* <Profile /> */}
-        <Form />
+        {/* <Form /> */}
+        <Home/>
       </Container>
     </>
   );
