@@ -8,8 +8,8 @@ function App() {
     <>
       <Header />
       <Container maxWidth="md">
-        <Profile />
-        {/* <Form /> */}
+        {/* <Profile /> */}
+        <Form />
       </Container>
     </>
   );

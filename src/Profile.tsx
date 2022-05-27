@@ -36,7 +36,7 @@ const Profile: React.FunctionComponent<IProfileProps> = (props) => {
           flexDirection: 'column',
           width: 1,
           height: '500px',
-          backgroundColor: '#C3C2B4',
+          backgroundColor: '#e8eaf6',
           borderRadius: '33px',
           mt: '200px',
           mb: '40px',
