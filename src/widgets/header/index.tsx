@@ -13,7 +13,6 @@ import { useNavigate } from 'react-router-dom';
 
 interface IHeaderProps {}
 
-
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();

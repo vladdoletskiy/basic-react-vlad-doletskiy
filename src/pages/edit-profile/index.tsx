@@ -5,9 +5,9 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 
-interface IFormProps {}
+interface IEditProfileFormProps {}
 
-const Form: React.FunctionComponent<IFormProps> = (props) => {
+const EditProfileForm: React.FunctionComponent<IEditProfileFormProps> = (props) => {
   return (
     <Container maxWidth="md">
       <Box
@@ -119,4 +119,4 @@ const Form: React.FunctionComponent<IFormProps> = (props) => {
   );
 };
 
-export default Form;
+export default EditProfileForm;
