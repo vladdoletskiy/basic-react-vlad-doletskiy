@@ -20,11 +20,11 @@ interface IHeaderProps {}
 const Header: FC<IHeaderProps> = (props) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
-    console.log(isAuthenticated);
-  }, [isAuthenticated]);
+    console.log(user);
+  }, [user]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
