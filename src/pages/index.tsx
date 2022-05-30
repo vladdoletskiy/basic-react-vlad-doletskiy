@@ -10,5 +10,5 @@ export const Routing = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/edit" element={<EditProfileForm />} />
     </Routes>
-  );
+  ); 
 };
