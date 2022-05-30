@@ -13,6 +13,7 @@
     "lint:ts": "tsc --noEmit"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.10.1",
     "@babel/plugin-transform-runtime": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
@@ -25,6 +26,7 @@
     "@mui/styled-engine-sc": "^5.8.0",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
+    "auth0": "^2.42.0",
     "babel": "^6.23.0",
     "dependency-cruiser": "^11.7.0",
     "eslint-config-prettier": "^8.5.0",

@@ -8,14 +8,23 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from '../../features/auth/login';
+import LogOutButton from '../../features/auth/logout';
+
 
 interface IHeaderProps {}
 
-const Header: React.FunctionComponent<IHeaderProps> = (props) => {
+const Header: FC<IHeaderProps> = (props) => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth0();
+
+  useEffect(() => {
+    console.log(isAuthenticated);
+  }, [isAuthenticated]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -117,7 +126,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
               Edit Profile
             </Button>
           </Box>
-          <Button color="inherit">Login</Button>
+          {isAuthenticated ? <LogOutButton /> : <LoginButton />}
         </Toolbar>
       </Container>
     </AppBar>
