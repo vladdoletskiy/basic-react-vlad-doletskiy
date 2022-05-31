@@ -1,40 +1,37 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import {
+  Box,
+  Container,
+  Typography,
+  MenuItem,
+  Button,
+  Menu,
+  IconButton,
+  Toolbar,
+  AppBar,
+} from '../../shared/ui/elements/components';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-interface IHeaderProps {}
-
-const Header: React.FunctionComponent<IHeaderProps> = (props) => {
+export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (): void => {
     setAnchorElNav(null);
   };
 
-  const navToProfile = () => {
+  const navToProfile = (): void => {
     handleCloseNavMenu();
     navigate('/profile');
   };
-  const navToEdit = () => {
+  const navToEdit = (): void => {
     handleCloseNavMenu();
     navigate('/edit');
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#100A24' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'primary.dark' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -60,7 +57,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={(event) => setAnchorElNav(event.currentTarget)}
               color="inherit"
             >
               <MenuIcon />
@@ -123,5 +120,3 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
     </AppBar>
   );
 };
-
-export default Header;

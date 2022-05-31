@@ -1,6 +1,6 @@
-import Profile from './profile';
-import Home from './home';
-import EditProfileForm from '../pages/edit-profile';
+import { Profile } from './profile/index';
+import { Home } from './home';
+import { EditProfileForm } from '../pages/edit-profile';
 import { Routes, Route } from 'react-router-dom';
 
 export const Routing = () => {
