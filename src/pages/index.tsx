@@ -1,14 +1,14 @@
-import { Profile } from './profile/index';
-import { Home } from './home/index';
-import { EditProfileForm } from './edit-profile/index';
+import { ProfilePage } from './profile';
+import { HomePage } from './home';
+import { EditProfilePage } from './edit-profile';
 import { Routes, Route } from 'react-router-dom';
 
 export const Routing = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/edit" element={<EditProfileForm />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/edit" element={<EditProfilePage />} />
     </Routes>
   );
 };

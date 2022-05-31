@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '../../shared/ui/elements/components';
 
-export const Home: React.FunctionComponent = () => {
+export const HomePage: React.FunctionComponent = () => {
   return (
     <Container maxWidth="md">
       <Box

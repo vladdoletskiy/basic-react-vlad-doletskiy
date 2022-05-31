@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 
-export const EditProfileForm: React.FunctionComponent = () => {
+export const EditProfilePage: React.FunctionComponent = () => {
   return (
     <Container maxWidth="md">
       <Box

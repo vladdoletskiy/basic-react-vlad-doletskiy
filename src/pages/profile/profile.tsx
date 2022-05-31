@@ -2,7 +2,7 @@ import { Box, Avatar, Container, Typography } from '../../shared/ui/elements/com
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../shared/ui/theme/theme-config';
 
-export const Profile: React.FunctionComponent = () => {
+export const ProfilePage: React.FunctionComponent = () => {
   return (
     <Container maxWidth="md">
       <Box

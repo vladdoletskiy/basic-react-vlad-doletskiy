@@ -1,6 +1,6 @@
-import { Header } from '../widgets/header/header';
+import { Header } from '../widgets';
 import './index.scss';
-import { Routing } from '../pages/index';
+import { Routing } from '../pages';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
