@@ -9,13 +9,13 @@ module.exports = {
       from: { path: '^src/pages/([^/]+)/?.+', pathNot: '^src/pages/(routes|paths).ts' },
       to: { path: '^src/pages/(?!$1)/?.+', pathNot: '^src/pages/(routes|paths).ts' },
     },
-    {
-      name: 'no-widgets-on-widgets',
-      severity: 'error',
-      comment: 'One widget MUST not depends on another widget.',
-      from: { path: '^src/widgets/([^/]+)/?.+' },
-      to: { path: '^src/widgets/(?!$1)/?.+' },
-    },
+    // {
+    //   name: 'no-widgets-on-widgets',
+    //   severity: 'error',
+    //   comment: 'One widget MUST not depends on another widget.',
+    //   from: { path: '^src/widgets/([^/]+)/?.+' },
+    //   to: { path: '^src/widgets/(?!$1)/?.+' },
+    // },
     {
       name: 'no-features-on-features',
       severity: 'error',
