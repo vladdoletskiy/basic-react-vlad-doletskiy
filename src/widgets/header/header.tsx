@@ -12,9 +12,8 @@ import {
   Toolbar,
   AppBar,
 } from '../../shared/ui/elements/components';
-import { LoginButton } from '../../features/auth/login';
-import { isAuthenticated } from '../../features/auth/createClient';
-import { LogOutButton } from '../../features/auth/logout';
+import { LoginButton } from '../../features/auth/ui/login';
+import { LogOutButton } from '../../features/auth/ui/logout';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -118,7 +117,8 @@ export const Header: React.FunctionComponent = () => {
               Edit Profile
             </Button>
           </Box>
-          {!isAuthenticated ? <LoginButton /> : <LogOutButton />}
+          <LoginButton />
+          <LogOutButton />
         </Toolbar>
       </Container>
     </AppBar>

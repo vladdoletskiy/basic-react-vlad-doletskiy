@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../../shared/ui/elements';
-import { auth0 } from './createClient';
+import { Button } from '../../../shared/ui/elements';
+import { auth0 } from '../../../entities/viewer/model/createClient';
 
 export const LogOutButton: React.FunctionComponent = () => {
   return (

@@ -28,6 +28,8 @@
     "@typescript-eslint/parser": "^5.23.0",
     "babel": "^6.23.0",
     "dependency-cruiser": "^11.7.0",
+    "effector": "^22.3.0",
+    "effector-react": "^22.0.6",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-effector": "^0.6.0",
     "eslint-plugin-jest": "^26.2.1",
