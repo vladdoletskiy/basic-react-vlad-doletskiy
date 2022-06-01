@@ -12,6 +12,9 @@ import {
   Toolbar,
   AppBar,
 } from '../../shared/ui/elements/components';
+import { LoginButton } from '../../features/auth/login';
+import { isAuthenticated } from '../../features/auth/createClient';
+import { LogOutButton } from '../../features/auth/logout';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -25,6 +28,7 @@ export const Header: React.FunctionComponent = () => {
     handleCloseNavMenu();
     navigate('/profile');
   };
+
   const navToEdit = (): void => {
     handleCloseNavMenu();
     navigate('/edit');
@@ -114,7 +118,7 @@ export const Header: React.FunctionComponent = () => {
               Edit Profile
             </Button>
           </Box>
-          <Button color="inherit">Login</Button>
+          {!isAuthenticated ? <LoginButton /> : <LogOutButton />}
         </Toolbar>
       </Container>
     </AppBar>
