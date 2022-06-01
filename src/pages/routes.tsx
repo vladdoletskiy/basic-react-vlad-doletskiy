@@ -3,7 +3,6 @@ import { ProfilePage } from './profile';
 import { HomePage } from './home';
 import { EditProfilePage } from './edit-profile';
 
-
 export const Routing = () => {
   return (
     <Routes>
