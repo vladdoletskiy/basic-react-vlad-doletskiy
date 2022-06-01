@@ -33,6 +33,8 @@ export const Header: React.FunctionComponent = () => {
     navigate('/edit');
   };
 
+
+  
   return (
     <AppBar position="static" sx={{ backgroundColor: 'primary.dark' }}>
       <Container maxWidth="xl">
