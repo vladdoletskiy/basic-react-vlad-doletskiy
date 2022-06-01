@@ -12,8 +12,8 @@ import {
   Toolbar,
   AppBar,
 } from '../../shared/ui/elements/components';
-import { LoginButton } from '../../features/auth/ui/login';
-import { LogOutButton } from '../../features/auth/ui/logout';
+import { LoginButton } from '../../features';
+import { LogOutButton } from '../../features';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
