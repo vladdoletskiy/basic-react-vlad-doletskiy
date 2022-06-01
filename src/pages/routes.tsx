@@ -1,7 +1,8 @@
+import { Routes, Route } from 'react-router-dom';
 import { ProfilePage } from './profile';
 import { HomePage } from './home';
 import { EditProfilePage } from './edit-profile';
-import { Routes, Route } from 'react-router-dom';
+
 
 export const Routing = () => {
   return (

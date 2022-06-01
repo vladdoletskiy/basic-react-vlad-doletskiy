@@ -1,5 +1,6 @@
-import { Box, TextField, Container, Typography, Button } from '../../shared/ui/elements/components';
+import React from 'react';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import { Box, TextField, Container, Typography, Button } from '../../shared/ui/elements/components';
 
 export const EditProfilePage: React.FunctionComponent = () => {
   return (

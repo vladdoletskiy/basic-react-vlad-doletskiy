@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   Box,
   Container,
@@ -9,9 +12,6 @@ import {
   Toolbar,
   AppBar,
 } from '../../shared/ui/elements/components';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

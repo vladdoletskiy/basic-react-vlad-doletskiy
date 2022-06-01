@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Container, Typography } from '../../shared/ui/elements/components';
 
 export const HomePage: React.FunctionComponent = () => {
