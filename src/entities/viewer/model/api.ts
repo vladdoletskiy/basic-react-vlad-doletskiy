@@ -1,4 +1,4 @@
-import { createEvent, createStore, createEffect } from 'effector';
+import { createEvent, createStore } from 'effector';
 import { Auth0Client } from '@auth0/auth0-spa-js';
 import { authConfig } from '../../../shared';
 

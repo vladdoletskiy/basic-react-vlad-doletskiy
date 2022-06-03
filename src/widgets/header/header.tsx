@@ -17,7 +17,6 @@ import { LoginButton } from '../../features';
 import { LogOutButton } from '../../features';
 import { $isAuth } from '../../entities/viewer';
 
-
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
@@ -37,8 +36,6 @@ export const Header: React.FunctionComponent = () => {
     navigate('/edit');
   };
 
-
-  
   return (
     <AppBar position="static" sx={{ backgroundColor: 'primary.dark' }}>
       <Container maxWidth="xl">

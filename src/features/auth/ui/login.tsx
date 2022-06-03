@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from '../../../shared/ui/elements';
 import { login } from '../model';
-
 
 export const LoginButton: React.FunctionComponent = () => {
   return (

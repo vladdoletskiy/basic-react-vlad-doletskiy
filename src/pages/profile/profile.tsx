@@ -1,12 +1,12 @@
 import React from 'react';
-import { useStore } from 'effector-react';
+// import { useStore } from 'effector-react';
 import { ThemeProvider } from '@mui/material/styles';
 import { Box, Avatar, Container, Typography } from '../../shared/ui/elements/components';
 import { theme } from '../../shared/ui/theme/theme-config';
-import { $User } from '../../entities/viewer';
+// import { $User } from '../../entities/viewer';
 
 export const ProfilePage: React.FunctionComponent = () => {
-  const user = useStore($User);
+  //   const user = useStore($User);
   return (
     <Container maxWidth="md">
       <Box
