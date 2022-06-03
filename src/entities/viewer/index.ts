@@ -1,1 +1,1 @@
-export { auth0 } from './model/createClient';
+export * from './model/api';

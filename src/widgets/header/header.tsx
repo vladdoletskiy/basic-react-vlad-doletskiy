@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useStore } from 'effector-react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   Box,
@@ -14,10 +15,13 @@ import {
 } from '../../shared/ui/elements/components';
 import { LoginButton } from '../../features';
 import { LogOutButton } from '../../features';
+import { $isAuth } from '../../entities/viewer';
+
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const isAuth = useStore($isAuth);
 
   const handleCloseNavMenu = (): void => {
     setAnchorElNav(null);
@@ -119,8 +123,7 @@ export const Header: React.FunctionComponent = () => {
               Edit Profile
             </Button>
           </Box>
-          <LoginButton />
-          <LogOutButton />
+          {!isAuth ? <LoginButton /> : <LogOutButton />}
         </Toolbar>
       </Container>
     </AppBar>
