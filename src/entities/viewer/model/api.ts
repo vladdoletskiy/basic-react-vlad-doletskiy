@@ -1,5 +1,5 @@
 import { Auth0Client } from '@auth0/auth0-spa-js';
-import { authConfig } from '../../../shared';
+import { authConfig } from 'shared';
 import { User } from './types';
 export const auth0 = new Auth0Client(authConfig);
 

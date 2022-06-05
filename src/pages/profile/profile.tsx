@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import { Box, Avatar, Container, Typography } from '../../shared/ui/elements/components';
-import { theme } from '../../shared/ui/theme/theme-config';
-import { viewerModel } from '../../entities/viewer';
+import { Box, Avatar, Container, Typography } from 'shared/ui/elements/components';
+import { theme } from 'shared/ui/theme/theme-config';
+import { viewerModel } from 'entities/viewer';
 import { useStore } from 'effector-react';
 
 export const ProfilePage: React.FunctionComponent = () => {

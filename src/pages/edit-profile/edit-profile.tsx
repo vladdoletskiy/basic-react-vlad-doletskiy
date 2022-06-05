@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStore } from 'effector-react';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
-import { Box, TextField, Container, Typography, Button } from '../../shared/ui/elements/components';
-import { viewerModel } from '../../entities/viewer';
+import { Box, TextField, Container, Typography, Button } from 'shared/ui/elements/components';
+import { viewerModel } from 'entities/viewer';
 
 export const EditProfilePage: React.FunctionComponent = () => {
   const isAuth = useStore(viewerModel.$isAuth);

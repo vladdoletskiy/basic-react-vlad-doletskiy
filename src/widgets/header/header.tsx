@@ -12,10 +12,10 @@ import {
   IconButton,
   Toolbar,
   AppBar,
-} from '../../shared/ui/elements/components';
-import { LoginButton } from '../../entities/viewer';
-import { LogOutButton } from '../../entities/viewer';
-import { viewerModel } from '../../entities/viewer';
+} from 'shared/ui/elements/components';
+import { LoginButton } from 'entities/viewer';
+import { LogOutButton } from 'entities/viewer';
+import { viewerModel } from 'entities/viewer';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
