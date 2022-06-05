@@ -1,7 +1,13 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
-import { Box, TextField, Container, Typography, Button } from 'shared/ui/elements/components';
+import {
+  Box,
+  TextField,
+  Container,
+  Typography,
+  Button,
+  AddCircleOutlinedIcon,
+} from 'shared/ui/mui/components';
 import { viewerModel } from 'entities/viewer';
 
 export const EditProfilePage: React.FunctionComponent = () => {

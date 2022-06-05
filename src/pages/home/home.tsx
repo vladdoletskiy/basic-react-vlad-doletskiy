@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography } from 'shared/ui/elements/components';
+import { Box, Container, Typography } from 'shared/ui/mui/components';
 
 export const HomePage: React.FunctionComponent = () => {
   return (

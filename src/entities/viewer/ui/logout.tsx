@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'shared/ui/elements';
-import { viewerModel } from '../index';
+import { Button } from 'shared/ui/mui';
+import { viewerModel } from 'entities/viewer';
 
 export const LogOutButton: React.FunctionComponent = () => {
   return (

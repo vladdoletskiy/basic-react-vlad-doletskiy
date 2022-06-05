@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from 'effector-react';
-import MenuIcon from '@mui/icons-material/Menu';
 import {
   Box,
   Container,
@@ -12,7 +11,8 @@ import {
   IconButton,
   Toolbar,
   AppBar,
-} from 'shared/ui/elements/components';
+  MenuIcon,
+} from 'shared/ui/mui/components';
 import { LoginButton } from 'entities/viewer';
 import { LogOutButton } from 'entities/viewer';
 import { viewerModel } from 'entities/viewer';
