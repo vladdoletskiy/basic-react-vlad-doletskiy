@@ -15,12 +15,12 @@ import {
 } from '../../shared/ui/elements/components';
 import { LoginButton } from '../../entities/viewer';
 import { LogOutButton } from '../../entities/viewer';
-// import { $isAuth } from '../../entities/viewer';
+import { viewerModel } from '../../entities/viewer';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
-  //   const isAuth = useStore($isAuth);
+  const isAuth = useStore(viewerModel.$isAuth);
 
   const handleCloseNavMenu = (): void => {
     setAnchorElNav(null);
@@ -120,9 +120,7 @@ export const Header: React.FunctionComponent = () => {
               Edit Profile
             </Button>
           </Box>
-          {/* {!isAuth ? <LoginButton /> : <LogOutButton />} */}
-          <LoginButton />
-          <LogOutButton />
+          {!isAuth ? <LoginButton /> : <LogOutButton />}
         </Toolbar>
       </Container>
     </AppBar>
