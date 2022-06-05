@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from '../../../shared/ui/elements';
-import { logout } from '../model';
+import { viewerModel } from '../index';
 
 export const LogOutButton: React.FunctionComponent = () => {
   return (
-    <Button onClick={logout} color="inherit">
+    <Button onClick={() => viewerModel.logoutRequested()} color="inherit">
       LogOut
     </Button>
   );

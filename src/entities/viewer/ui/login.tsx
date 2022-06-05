@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from '../../../shared/ui/elements';
-import { login } from '../model';
+import { viewerModel } from '../index';
 
 export const LoginButton: React.FunctionComponent = () => {
   return (
     <>
-      <Button onClick={login} color="inherit">
+      <Button onClick={() => viewerModel.loginRequested()} color="inherit">
         Login
       </Button>
     </>
