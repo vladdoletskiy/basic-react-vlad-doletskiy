@@ -1,7 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
 import { Box, Avatar, Container, Typography } from 'shared/ui/mui/components';
-import { theme } from 'shared/ui/theme/theme-config';
 import { viewerModel } from 'entities/viewer';
 import { useStore } from 'effector-react';
 
@@ -16,6 +14,7 @@ export const ProfilePage: React.FunctionComponent = () => {
           justifyContent: 'center',
           alignItems: 'center',
           width: 1,
+          fontFamily: 'Roboto',
           height: 'calc(100vh - 65.3px)',
         }}
       >
@@ -29,7 +28,7 @@ export const ProfilePage: React.FunctionComponent = () => {
               height: '500px',
               backgroundColor: 'primary.light',
               borderRadius: '33px',
-              mt: '200px',
+              mt: '130px',
               mb: '40px',
             }}
           >
@@ -77,54 +76,48 @@ export const ProfilePage: React.FunctionComponent = () => {
                   sx={{
                     pr: '20px',
                     textAlign: 'right',
-                    fontFamily: 'roboto',
                   }}
                 >
-                  <ThemeProvider theme={theme}>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        pt: '15px',
-                      }}
-                    >
-                      City
-                    </Typography>
-                    <Typography variant="h6">Country</Typography>
-                    <Typography variant="h6">DoB</Typography>
-                    <Typography variant="h6">Email</Typography>
-                    <Typography variant="h6">Phone</Typography>
-                  </ThemeProvider>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      pt: '15px',
+                    }}
+                  >
+                    City
+                  </Typography>
+                  <Typography variant="h6">Country</Typography>
+                  <Typography variant="h6">DoB</Typography>
+                  <Typography variant="h6">Email</Typography>
+                  <Typography variant="h6">Phone</Typography>
                 </Box>
 
                 <Box
                   sx={{
                     fontWeight: '500',
-                    fontFamily: 'roboto',
                   }}
                 >
-                  <ThemeProvider theme={theme}>
-                    <Typography
-                      variant="h6"
-                      color="initial"
-                      sx={{
-                        pt: '15px',
-                      }}
-                    >
-                      London
-                    </Typography>
-                    <Typography variant="h6" color="initial">
-                      Great Britain
-                    </Typography>
-                    <Typography variant="h6" color="initial">
-                      14.04.1999
-                    </Typography>
-                    <Typography variant="h6" color="initial">
-                      {user?.name}
-                    </Typography>
-                    <Typography variant="h6" color="initial">
-                      +380969124049
-                    </Typography>
-                  </ThemeProvider>
+                  <Typography
+                    variant="h6"
+                    color="initial"
+                    sx={{
+                      pt: '15px',
+                    }}
+                  >
+                    London
+                  </Typography>
+                  <Typography variant="h6" color="initial">
+                    Great Britain
+                  </Typography>
+                  <Typography variant="h6" color="initial">
+                    14.04.1999
+                  </Typography>
+                  <Typography variant="h6" color="initial">
+                    {user?.name}
+                  </Typography>
+                  <Typography variant="h6" color="initial">
+                    +380969124049
+                  </Typography>
                 </Box>
               </Box>
             </Box>

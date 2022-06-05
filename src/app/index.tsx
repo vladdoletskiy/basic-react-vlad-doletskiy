@@ -2,13 +2,16 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Routing } from 'pages';
 import { Header } from 'widgets/header';
-import './index.scss';
+import { ThemeProvider } from 'shared';
+import { theme } from 'shared/ui/theme/theme-config';
 
 export const App: React.FunctionComponent = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <Routing />
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Routing />
+      </ThemeProvider>
     </BrowserRouter>
   );
 };

@@ -37,7 +37,7 @@ export const Header: React.FunctionComponent = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'primary.dark' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'primary' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -48,7 +48,7 @@ export const Header: React.FunctionComponent = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'roboto',
+              fontFamily: 'Roboto',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',

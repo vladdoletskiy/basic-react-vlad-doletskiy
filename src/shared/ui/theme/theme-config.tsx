@@ -1,6 +1,19 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, colors } from '@mui/material';
 
-export const theme = createTheme();
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: colors.blueGrey[900],
+      light: colors.blueGrey[200],
+    },
+    secondary: {
+      main: colors.grey[600],
+    },
+  },
+  typography: {
+    fontFamily: ['Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'].join(','),
+  },
+});
 
 theme.typography.h6 = {
   fontWeight: '500',

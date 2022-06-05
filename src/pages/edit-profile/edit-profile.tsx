@@ -20,6 +20,7 @@ export const EditProfilePage: React.FunctionComponent = () => {
           justifyContent: 'center',
           alignItems: 'center',
           width: 1,
+          fontFamily: 'Roboto',
           height: 'calc(100vh - 65.3px)',
         }}
       >
@@ -31,7 +32,7 @@ export const EditProfilePage: React.FunctionComponent = () => {
               flexDirection: 'column',
               width: 1,
               height: '550px',
-              backgroundColor: '#e8eaf6',
+              backgroundColor: 'primary.light',
               borderRadius: '33px',
             }}
           >
