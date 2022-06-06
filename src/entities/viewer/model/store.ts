@@ -11,7 +11,7 @@ export const getUserFx = createEffect(getUser);
 export const getAuthStateFx = createEffect(getAuthState);
 
 export const $user = createStore<User | null>(null).on(getUserFx.doneData, (_, user) => user);
-export const $isAuth = createStore(false).on(getAuthStateFx.doneData, (_, res) => res);
+export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
 
 sample({ clock: loginFx.doneData, target: getUserFx });
 sample({ clock: loginRequested, target: loginFx });
