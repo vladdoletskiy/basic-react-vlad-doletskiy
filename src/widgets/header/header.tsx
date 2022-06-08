@@ -12,10 +12,8 @@ import {
   Toolbar,
   AppBar,
   MenuIcon,
-} from 'shared/ui/mui/components';
-import { LoginButton } from 'entities/viewer';
-import { LogOutButton } from 'entities/viewer';
-import { viewerModel } from 'entities/viewer';
+} from 'shared';
+import { LoginButton, LogOutButton, viewerModel } from 'entities/viewer';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -48,7 +46,6 @@ export const Header: React.FunctionComponent = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'Roboto',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -101,8 +98,6 @@ export const Header: React.FunctionComponent = () => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'roboto',
-              fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
             }}

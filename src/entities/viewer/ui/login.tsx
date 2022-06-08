@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'shared/ui/mui';
+import { Button } from 'shared';
 import { viewerModel } from 'entities/viewer';
 
 export const LoginButton: React.FunctionComponent = () => {

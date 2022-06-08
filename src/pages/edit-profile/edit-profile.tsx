@@ -1,13 +1,6 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import {
-  Box,
-  TextField,
-  Container,
-  Typography,
-  Button,
-  AddCircleOutlinedIcon,
-} from 'shared/ui/mui/components';
+import { Box, TextField, Container, Typography, Button, AddCircleOutlinedIcon } from 'shared';
 import { viewerModel } from 'entities/viewer';
 
 export const EditProfilePage: React.FunctionComponent = () => {
@@ -20,7 +13,6 @@ export const EditProfilePage: React.FunctionComponent = () => {
           justifyContent: 'center',
           alignItems: 'center',
           width: 1,
-          fontFamily: 'Roboto',
           height: 'calc(100vh - 65.3px)',
         }}
       >

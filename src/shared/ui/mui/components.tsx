@@ -1,5 +1,4 @@
-export { default as MenuIcon } from '@mui/icons-material/Menu';
-export { default as AddCircleOutlinedIcon } from '@mui/icons-material/AddCircleOutlined';
+export { Menu as MenuIcon, AddCircleOutlined as AddCircleOutlinedIcon } from '@mui/icons-material';
 export {
   Box,
   Avatar,

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Avatar, Container, Typography } from 'shared/ui/mui/components';
-import { viewerModel } from 'entities/viewer';
 import { useStore } from 'effector-react';
+import { Box, Avatar, Container, Typography } from 'shared';
+import { viewerModel } from 'entities/viewer';
 
 export const ProfilePage: React.FunctionComponent = () => {
   const isAuth = useStore(viewerModel.$isAuth);
@@ -14,7 +14,6 @@ export const ProfilePage: React.FunctionComponent = () => {
           justifyContent: 'center',
           alignItems: 'center',
           width: 1,
-          fontFamily: 'Roboto',
           height: 'calc(100vh - 65.3px)',
         }}
       >
