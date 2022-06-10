@@ -13,7 +13,8 @@ import {
   AppBar,
   MenuIcon,
 } from 'shared';
-import { LoginButton, LogOutButton, viewerModel } from 'entities/viewer';
+import { viewerModel } from 'entities/viewer';
+import { LoginButton, LogOutButton } from 'entities/viewer/ui';
 
 export const Header: React.FunctionComponent = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

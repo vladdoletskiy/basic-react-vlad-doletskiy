@@ -3,7 +3,7 @@ import { useStore } from 'effector-react';
 import { Box, TextField, Container, Typography, Button, AddCircleOutlinedIcon } from 'shared';
 import { viewerModel } from 'entities/viewer';
 
-export const EditProfilePage: React.FunctionComponent = () => {
+export const EditProfilePage: React.FC = () => {
   const isAuth = useStore(viewerModel.$isAuth);
   return (
     <Container maxWidth="md">

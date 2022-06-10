@@ -3,7 +3,7 @@ import { useStore } from 'effector-react';
 import { Box, Avatar, Container, Typography } from 'shared';
 import { viewerModel } from 'entities/viewer';
 
-export const ProfilePage: React.FunctionComponent = () => {
+export const ProfilePage: React.FC = () => {
   const isAuth = useStore(viewerModel.$isAuth);
   const user = useStore(viewerModel.$user);
   return (
@@ -57,7 +57,7 @@ export const ProfilePage: React.FunctionComponent = () => {
               }}
             >
               <Typography variant="h4" color="initial">
-                {user?.nickname}
+                {user.nickname}
               </Typography>
               <Typography variant="subtitle1" color="initial">
                 Wizard
@@ -112,7 +112,7 @@ export const ProfilePage: React.FunctionComponent = () => {
                     14.04.1999
                   </Typography>
                   <Typography variant="h6" color="initial">
-                    {user?.name}
+                    {user.name}
                   </Typography>
                   <Typography variant="h6" color="initial">
                     +380969124049

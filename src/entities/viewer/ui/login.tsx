@@ -4,10 +4,8 @@ import { viewerModel } from 'entities/viewer';
 
 export const LoginButton: React.FunctionComponent = () => {
   return (
-    <>
-      <Button onClick={() => viewerModel.loginRequested()} color="inherit">
-        Login
-      </Button>
-    </>
+    <Button onClick={() => viewerModel.loginRequested()} color="inherit">
+      Login
+    </Button>
   );
 };
