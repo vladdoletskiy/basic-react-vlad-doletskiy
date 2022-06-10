@@ -115,7 +115,9 @@ export const Header: React.FunctionComponent = () => {
               Edit Profile
             </Button>
           </Box>
-          {!isAuth ? <LoginButton /> : <LogOutButton />}
+          {/* {!isAuth ? <LoginButton /> : <LogOutButton />} */}
+          <LoginButton />
+          <LogOutButton />
         </Toolbar>
       </Container>
     </AppBar>
