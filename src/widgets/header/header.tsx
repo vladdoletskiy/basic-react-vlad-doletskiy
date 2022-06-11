@@ -16,7 +16,7 @@ import {
 import { viewerModel } from 'entities/viewer';
 import { LoginButton, LogOutButton } from 'entities/viewer/ui';
 
-export const Header: React.FunctionComponent = () => {
+export const Header: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
   const isAuth = useStore(viewerModel.$isAuth);

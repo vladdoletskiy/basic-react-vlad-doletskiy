@@ -5,7 +5,7 @@ import { theme, CssBaseline } from 'shared';
 import { Header } from 'widgets/header';
 import { Routing } from 'pages';
 
-export const App: React.FunctionComponent = () => {
+export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
