@@ -6,5 +6,5 @@ const auth0 = new Auth0Client(authConfig);
 
 export const login = () => auth0.loginWithPopup();
 export const logout = () => auth0.logout();
-export const getUser = (): Promise<User> => auth0.getUser();
+export const getUser = (): Promise<User | null> => auth0.getUser() || null;
 export const getAuthState = (): Promise<boolean> => auth0.isAuthenticated();
