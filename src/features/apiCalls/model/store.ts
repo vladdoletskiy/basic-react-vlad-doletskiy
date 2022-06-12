@@ -1,33 +1,31 @@
 import { sample, createEvent, createStore, createEffect, attach } from 'effector';
 import axios from 'axios';
-import { $user } from 'entities/viewer/model/store';
+import { $user, getUserFx } from 'entities/viewer/model/store';
 import { authConfig } from 'shared';
 
-const backendRequestFx = createEffect(async ({ resource, method }: any) => {
-  return axios(`https://jsonplaceholder.typicode.com${resource}`, {
-    method: method,
-    headers: {
-      'content-type': 'application/json',
-    },
-  });
-});
+export const getUserRequested = createEvent();
+
+const backendRequestFx = createEffect(
+  async ({ resource, method }: { resource: string; method: string }) => {
+    return axios(`https://dev-lp34u8l1.us.auth0.com/api/v2/users/${resource}`, {
+      method: method,
+      headers: {
+        authorization: `Bearer ${authConfig.tokenApi}`,
+        'content-type': 'application/json',
+      },
+    });
+  },
+);
 
 backendRequestFx.doneData.watch((response) => console.log('Effect is done with', response.data));
 backendRequestFx.failData.watch((error) => console.warn('Effect is failed with', error));
 
-const requestFx = attach({
-  effect: backendRequestFx,
-  source: $user,
-  mapParams: ({ method, resource }: { method: string; resource: string }, user) => ({
-    method,
-    resource,
-    user,
-  }),
-});
-
 export const getPostsFx = attach({
   source: $user,
-  async effect(_, user) {
-    return requestFx({ resource: `/posts/${user.id}`, method: 'GET' });
+  async effect(user, text: any) {
+    // console.log(user?.sub);
+    return backendRequestFx({ resource: `${user?.sub}`, method: 'GET' });
   },
 });
+sample({ clock: getUserRequested, target: getPostsFx });
+

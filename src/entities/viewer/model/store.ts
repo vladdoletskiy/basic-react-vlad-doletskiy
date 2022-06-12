@@ -1,7 +1,6 @@
 import { sample, createEvent, createStore, createEffect, attach } from 'effector';
 import { User } from './types';
-import { getUser, login, logout, getAuthState, accessToken, callApi } from './api';
-import { getPostsFx } from '../../../features/apiCalls/model/store';
+import { getUser, login, logout, getAuthState, accessToken } from './api';
 
 export const loginRequested = createEvent();
 export const logoutRequested = createEvent();
@@ -21,4 +20,3 @@ sample({ clock: loginRequested, target: loginFx });
 sample({ clock: logoutRequested, target: logoutFx });
 sample({ clock: loginFx.doneData, target: getAuthStateFx });
 sample({ clock: loginFx.doneData, target: getTokenFx });
-sample({ clock: getUserFx.doneData, target: getPostsFx });
