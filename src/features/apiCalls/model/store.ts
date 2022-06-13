@@ -44,6 +44,7 @@ export const updateUserFx = attach({
     return backendRequestFx({ resource: `auth0|62927cc87a0f2c00687f5abc}`, method: 'PATCH' });
   },
 });
+
 export const getUserInfoFx = attach({
   source: viewerModel.$user,
   async effect(user, text: any) {
