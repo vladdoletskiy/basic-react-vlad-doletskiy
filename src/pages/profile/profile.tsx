@@ -2,10 +2,12 @@ import React from 'react';
 import { useStore } from 'effector-react';
 import { Box, Avatar, Container, Typography } from 'shared';
 import { viewerModel } from 'entities/viewer';
+import { featureModel } from 'features/apiCalls';
 
 export const ProfilePage: React.FunctionComponent = () => {
   const isAuth = useStore(viewerModel.$isAuth);
-  const user = useStore(viewerModel.$user);
+  const userInfo = useStore(featureModel.$userInfo);
+
   return (
     <Container maxWidth="md">
       <Box
@@ -41,7 +43,7 @@ export const ProfilePage: React.FunctionComponent = () => {
             >
               <Avatar
                 alt="Remy Sharp"
-                srcSet="https://citaty.info/files/styles/poster/public/characters/8604.jpg?itok=_bemMaL1"
+                srcSet={userInfo?.picture}
                 sx={{
                   width: { sm: '250px', md: '270px', xs: '200px' },
                   height: { sm: '250px', md: '270px', xs: '200px' },
@@ -57,10 +59,7 @@ export const ProfilePage: React.FunctionComponent = () => {
               }}
             >
               <Typography variant="h4" color="initial">
-                {user?.nickname}
-              </Typography>
-              <Typography variant="subtitle1" color="initial">
-                Wizard
+                {userInfo?.nickname}
               </Typography>
               <Box
                 sx={{
@@ -77,16 +76,6 @@ export const ProfilePage: React.FunctionComponent = () => {
                     textAlign: 'right',
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      pt: '15px',
-                    }}
-                  >
-                    City
-                  </Typography>
-                  <Typography variant="h6">Country</Typography>
-                  <Typography variant="h6">DoB</Typography>
                   <Typography variant="h6">Email</Typography>
                   <Typography variant="h6">Phone</Typography>
                 </Box>
@@ -96,26 +85,11 @@ export const ProfilePage: React.FunctionComponent = () => {
                     fontWeight: '500',
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    color="initial"
-                    sx={{
-                      pt: '15px',
-                    }}
-                  >
-                    London
+                  <Typography variant="h6" color="initial">
+                    {userInfo?.email}
                   </Typography>
                   <Typography variant="h6" color="initial">
-                    Great Britain
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    14.04.1999
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    {user?.name}
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    +380969124049
+                    {userInfo?.phone_number || '-'}
                   </Typography>
                 </Box>
               </Box>

@@ -1,7 +1,16 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { Box, TextField, Container, Typography, Button, AddCircleOutlinedIcon } from 'shared';
+import {
+  Box,
+  TextField,
+  Container,
+  Typography,
+  Button,
+  AddCircleOutlinedIcon,
+  MyTextField,
+} from 'shared';
 import { viewerModel } from 'entities/viewer';
+import { featureModel } from 'features/apiCalls';
 
 export const EditProfilePage: React.FunctionComponent = () => {
   const isAuth = useStore(viewerModel.$isAuth);
@@ -28,50 +37,54 @@ export const EditProfilePage: React.FunctionComponent = () => {
               borderRadius: '33px',
             }}
           >
-            <form>
+            <form onSubmit={featureModel.submittedForm}>
               <Box
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
                   flexDirection: 'column',
                   width: 1,
-                  mt: '10px',
+                  mt: '60px',
                 }}
               >
                 <Typography variant="h4" color="initial">
                   Edit Profile
                 </Typography>
-                <TextField
+                <MyTextField
                   sx={{
                     mb: '7px',
                   }}
                   id="outlined-basic"
                   label="Name"
                   variant="outlined"
+                  name="name"
                 />
-                <TextField
+                <MyTextField
                   sx={{
                     mb: '7px',
                   }}
                   id="outlined-basic"
-                  label="City"
+                  label="E-mail"
                   variant="outlined"
+                  name="email"
                 />
-                <TextField
+                <MyTextField
                   sx={{
                     mb: '7px',
                   }}
                   id="outlined-basic"
-                  label="Country"
+                  label="Phone"
                   variant="outlined"
+                  name="phone_number"
                 />
-                <TextField
+                {/* <TextField
                   sx={{
                     mb: '7px',
                   }}
                   id="outlined-basic"
-                  label="BoD"
+                  label="Name"
                   variant="outlined"
+                  name="name"
                 />
                 <TextField
                   sx={{
@@ -80,6 +93,7 @@ export const EditProfilePage: React.FunctionComponent = () => {
                   id="outlined-basic"
                   label="E-mail"
                   variant="outlined"
+                  name="email"
                 />
                 <TextField
                   sx={{
@@ -88,7 +102,8 @@ export const EditProfilePage: React.FunctionComponent = () => {
                   id="outlined-basic"
                   label="Phone"
                   variant="outlined"
-                />
+                  name="phone_number"
+                /> */}
                 <Button
                   sx={{
                     mb: '7px',
@@ -102,12 +117,13 @@ export const EditProfilePage: React.FunctionComponent = () => {
                   <input type="file" hidden />
                 </Button>
                 <Button
+                  type="submit"
                   sx={{
                     mb: '7px',
                   }}
                   variant="contained"
                 >
-                  Send
+                  Edit
                 </Button>
               </Box>
             </form>
