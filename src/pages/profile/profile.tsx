@@ -4,7 +4,6 @@ import { Box, Avatar, Container, Typography } from 'shared';
 import { viewerModel } from 'entities/viewer';
 
 export const ProfilePage: React.FC = () => {
-  const isAuth = useStore(viewerModel.$isAuth);
   const user = useStore(viewerModel.$user);
   return (
     <Container maxWidth="md">
@@ -17,7 +16,7 @@ export const ProfilePage: React.FC = () => {
           height: 'calc(100vh - 65.3px)',
         }}
       >
-        {isAuth ? (
+        {user ? (
           <Box
             sx={{
               display: 'flex',
