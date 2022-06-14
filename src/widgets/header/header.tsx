@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
+import { useStore } from 'effector-react';
 import {
   Box,
   Container,
@@ -11,11 +11,15 @@ import {
   IconButton,
   Toolbar,
   AppBar,
-} from '../../shared/ui/elements/components';
+  MenuIcon,
+} from 'shared';
+import { viewerModel } from 'entities/viewer';
+import { LoginButton, LogOutButton } from 'entities/viewer/ui';
 
-export const Header: React.FunctionComponent = () => {
+export const Header: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const isAuth = useStore(viewerModel.$isAuth);
 
   const handleCloseNavMenu = (): void => {
     setAnchorElNav(null);
@@ -25,13 +29,14 @@ export const Header: React.FunctionComponent = () => {
     handleCloseNavMenu();
     navigate('/profile');
   };
+
   const navToEdit = (): void => {
     handleCloseNavMenu();
     navigate('/edit');
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'primary.dark' }}>
+    <AppBar position="static" sx={{ backgroundColor: 'primary' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -42,7 +47,6 @@ export const Header: React.FunctionComponent = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'roboto',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -95,8 +99,6 @@ export const Header: React.FunctionComponent = () => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'roboto',
-              fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -114,7 +116,7 @@ export const Header: React.FunctionComponent = () => {
               Edit Profile
             </Button>
           </Box>
-          <Button color="inherit">Login</Button>
+          {!isAuth ? <LoginButton /> : <LogOutButton />}
         </Toolbar>
       </Container>
     </AppBar>

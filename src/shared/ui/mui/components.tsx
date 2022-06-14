@@ -1,3 +1,4 @@
+export { Menu as MenuIcon, AddCircleOutlined as AddCircleOutlinedIcon } from '@mui/icons-material';
 export {
   Box,
   Avatar,
