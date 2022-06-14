@@ -58,9 +58,6 @@ export const ProfilePage: React.FC = () => {
               <Typography variant="h4" color="initial">
                 {user.nickname}
               </Typography>
-              <Typography variant="subtitle1" color="initial">
-                Wizard
-              </Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -76,16 +73,6 @@ export const ProfilePage: React.FC = () => {
                     textAlign: 'right',
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      pt: '15px',
-                    }}
-                  >
-                    City
-                  </Typography>
-                  <Typography variant="h6">Country</Typography>
-                  <Typography variant="h6">DoB</Typography>
                   <Typography variant="h6">Email</Typography>
                   <Typography variant="h6">Phone</Typography>
                 </Box>
@@ -95,21 +82,6 @@ export const ProfilePage: React.FC = () => {
                     fontWeight: '500',
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    color="initial"
-                    sx={{
-                      pt: '15px',
-                    }}
-                  >
-                    London
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    Great Britain
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    14.04.1999
-                  </Typography>
                   <Typography variant="h6" color="initial">
                     {user.name}
                   </Typography>

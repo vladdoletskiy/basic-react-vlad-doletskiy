@@ -1,10 +1,18 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { Box, TextField, Container, Typography, Button, AddCircleOutlinedIcon } from 'shared';
+import {
+  Box,
+  TextField,
+  Container,
+  Typography,
+  Button,
+  AddCircleOutlinedIcon,
+  MyTextField,
+} from 'shared';
 import { viewerModel } from 'entities/viewer';
 
-export const EditProfilePage: React.FC = () => {
-  const isAuth = useStore(viewerModel.$isAuth);
+export const UpdateUserForm: React.FunctionComponent = () => {
+  const user = useStore(viewerModel.$user);
   return (
     <Container maxWidth="md">
       <Box
@@ -16,7 +24,7 @@ export const EditProfilePage: React.FC = () => {
           height: 'calc(100vh - 65.3px)',
         }}
       >
-        {isAuth ? (
+        {user ? (
           <Box
             sx={{
               display: 'flex',
@@ -35,12 +43,13 @@ export const EditProfilePage: React.FC = () => {
                   alignItems: 'center',
                   flexDirection: 'column',
                   width: 1,
-                  mt: '10px',
+                  mt: '60px',
                 }}
               >
                 <Typography variant="h4" color="initial">
                   Edit Profile
                 </Typography>
+
                 <TextField
                   sx={{
                     mb: '7px',
@@ -48,30 +57,7 @@ export const EditProfilePage: React.FC = () => {
                   id="outlined-basic"
                   label="Name"
                   variant="outlined"
-                />
-                <TextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
-                  label="City"
-                  variant="outlined"
-                />
-                <TextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
-                  label="Country"
-                  variant="outlined"
-                />
-                <TextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
-                  label="BoD"
-                  variant="outlined"
+                  name="name"
                 />
                 <TextField
                   sx={{
@@ -80,6 +66,7 @@ export const EditProfilePage: React.FC = () => {
                   id="outlined-basic"
                   label="E-mail"
                   variant="outlined"
+                  name="email"
                 />
                 <TextField
                   sx={{
@@ -88,6 +75,7 @@ export const EditProfilePage: React.FC = () => {
                   id="outlined-basic"
                   label="Phone"
                   variant="outlined"
+                  name="phone_number"
                 />
                 <Button
                   sx={{
@@ -102,12 +90,13 @@ export const EditProfilePage: React.FC = () => {
                   <input type="file" hidden />
                 </Button>
                 <Button
+                  type="submit"
                   sx={{
                     mb: '7px',
                   }}
                   variant="contained"
                 >
-                  Send
+                  Edit
                 </Button>
               </Box>
             </form>
