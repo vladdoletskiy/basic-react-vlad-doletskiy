@@ -10,10 +10,9 @@ import {
   MyTextField,
 } from 'shared';
 import { viewerModel } from 'entities/viewer';
-import { featureModel } from 'features/apiCalls';
 
-export const EditProfilePage: React.FunctionComponent = () => {
-  const isAuth = useStore(viewerModel.$isAuth);
+export const UpdateUserForm: React.FunctionComponent = () => {
+  const user = useStore(viewerModel.$user);
   return (
     <Container maxWidth="md">
       <Box
@@ -25,7 +24,7 @@ export const EditProfilePage: React.FunctionComponent = () => {
           height: 'calc(100vh - 65.3px)',
         }}
       >
-        {isAuth ? (
+        {user ? (
           <Box
             sx={{
               display: 'flex',
@@ -37,7 +36,7 @@ export const EditProfilePage: React.FunctionComponent = () => {
               borderRadius: '33px',
             }}
           >
-            <form onSubmit={featureModel.submittedForm}>
+            <form>
               <Box
                 sx={{
                   display: 'flex',
@@ -50,34 +49,8 @@ export const EditProfilePage: React.FunctionComponent = () => {
                 <Typography variant="h4" color="initial">
                   Edit Profile
                 </Typography>
-                <MyTextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
-                  label="Name"
-                  variant="outlined"
-                  name="name"
-                />
-                <MyTextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
-                  label="E-mail"
-                  variant="outlined"
-                  name="email"
-                />
-                <MyTextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
-                  label="Phone"
-                  variant="outlined"
-                  name="phone_number"
-                />
-                {/* <TextField
+
+                <TextField
                   sx={{
                     mb: '7px',
                   }}
@@ -103,7 +76,7 @@ export const EditProfilePage: React.FunctionComponent = () => {
                   label="Phone"
                   variant="outlined"
                   name="phone_number"
-                /> */}
+                />
                 <Button
                   sx={{
                     mb: '7px',

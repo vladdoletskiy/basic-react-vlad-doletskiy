@@ -2,12 +2,9 @@ import React from 'react';
 import { useStore } from 'effector-react';
 import { Box, Avatar, Container, Typography } from 'shared';
 import { viewerModel } from 'entities/viewer';
-import { featureModel } from 'features/apiCalls';
 
 export const ProfilePage: React.FunctionComponent = () => {
   const isAuth = useStore(viewerModel.$isAuth);
-  const userInfo = useStore(featureModel.$userInfo);
-
   return (
     <Container maxWidth="md">
       <Box
