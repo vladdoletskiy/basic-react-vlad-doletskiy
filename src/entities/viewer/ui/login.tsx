@@ -6,26 +6,22 @@ import { viewerModel } from 'entities/viewer';
 
 export const LoginButton: React.FunctionComponent = () => {
   const navigate = useNavigate();
-  //   const user = useStore(viewerModel.$user);
-  //   const token = useStore(viewerModel.$apiToken);
-  //   const token1 = useStore(viewerModel.$token);
+  const user = useStore(viewerModel.$user);
+  const token = useStore(viewerModel.$apiToken);
   return (
-    <Button
-      onClick={() => {
-        viewerModel.loginRequested();
-        navigate('/profile');
-      }}
-      color="inherit"
-    >
-      Login
-    </Button>
-  );
-};
-{
-  /* <Button onClick={() => console.log(user)} color="inherit">
-        USER
+    <>
+      <Button
+        onClick={() => {
+          viewerModel.loginRequested();
+          navigate('/profile');
+        }}
+        color="inherit"
+      >
+        Login
       </Button>
       <Button onClick={() => console.log(token)} color="inherit">
         TOKEN
-      </Button> */
-}
+      </Button>
+    </>
+  );
+};

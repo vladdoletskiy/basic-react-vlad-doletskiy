@@ -28,7 +28,6 @@ export const getUser = async (): Promise<User> => {
     username: user.nickname,
     user_id: user.sub,
     picture: user.picture,
-    user_metadata: user.user_metadata,
   };
 };
 
@@ -68,7 +67,7 @@ export const deleteUser = async (user: User): Promise<void> => {
 
 // Отримання токену для роботи з API
 export const getApiToken = async () => {
-  await axios(`https://dev-lp34u8l1.us.auth0.com/oauth/token`, {
+  return await axios(`https://dev-lp34u8l1.us.auth0.com/oauth/token`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',

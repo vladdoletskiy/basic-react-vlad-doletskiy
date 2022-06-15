@@ -1,5 +1,5 @@
 import { sample, createEvent, createStore, createEffect, attach } from 'effector';
-import { User } from './types';
+import { User, Token } from './types';
 import {
   getUser,
   login,
@@ -29,9 +29,9 @@ export const $user = createStore<User | null>(null)
   .on(userChanged, (user, partial) => (user ? { ...user, ...partial } : user));
 export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
 export const $token = createStore<string | null>(null).on(getTokenFx.doneData, (_, token) => token);
-export const $apiToken = createStore<string | null>(null).on(
+export const $apiToken = createStore<Token | null>(null).on(
   getApiTokenFx.doneData,
-  (_, token) => token,
+  (_, token) => token.data.access_token,
 );
 
 getApiTokenFx.doneData.watch((response) => console.log('Effect is done with', response));

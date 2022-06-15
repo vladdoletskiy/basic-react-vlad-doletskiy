@@ -117,6 +117,7 @@ export const Header: React.FC = () => {
             </Button>
           </Box>
           {!isAuth ? <LoginButton /> : <LogOutButton />}
+          <LoginButton />
         </Toolbar>
       </Container>
     </AppBar>

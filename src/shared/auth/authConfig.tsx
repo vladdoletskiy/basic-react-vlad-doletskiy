@@ -1,6 +1,7 @@
 export const authConfig = {
   domain: 'dev-lp34u8l1.us.auth0.com',
   client_id: 'vGjXuGbZBGTfOGmJJqRjYdhL7pJzZ0u6',
+  client_secrete: 'ql4YHDWu2MXqcNL5LIh2kk4DrFhOHiO89OppneL-UFYMG2gp-0k0iUCsWnpo9wXM',
   redirect_uri: window.location.origin,
   audience: 'https://dev-lp34u8l1.us.auth0.com/api/v2/',
   tokenApi:
@@ -8,8 +9,8 @@ export const authConfig = {
 };
 
 export const apiConfig = {
-  client_id: '62dIKASvipJL2SUHH1yq82RBpIsjaKhT',
-  client_secret: 'ec9TxivT9_2-ejOpkLutCrtxzmnrpEd0De8fzHKOzh0XnxZFEwXRYMkgvfU6nVj4',
+  client_id: 'FUWtAvVZAPLhDgAXioPocTuzHicdkaJq',
+  client_secret: 'jV36AzHPWCK7pJGInfYQd2aeo9eOcDYaNmDVcju6SgRtiG3Vazy7RyQT_lSuh4rB',
   audience: 'https://dev-lp34u8l1.us.auth0.com/api/v2/',
   grant_type: 'client_credentials',
 };
