@@ -103,7 +103,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
           </Box>
         ) : (
           <Typography variant="h6" color="initial">
-            User not find
+            User not found
           </Typography>
         )}
       </Box>

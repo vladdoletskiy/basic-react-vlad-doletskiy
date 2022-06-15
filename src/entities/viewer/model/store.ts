@@ -1,6 +1,15 @@
 import { sample, createEvent, createStore, createEffect, attach } from 'effector';
 import { User } from './types';
-import { getUser, login, logout, getAuthState, accessToken, updateUser, getApiToken } from './api';
+import {
+  getUser,
+  login,
+  logout,
+  getAuthState,
+  accessToken,
+  updateUser,
+  deleteUser,
+  getApiToken,
+} from './api';
 
 export const loginRequested = createEvent();
 export const logoutRequested = createEvent();
@@ -13,6 +22,7 @@ export const getTokenFx = createEffect(accessToken);
 export const getApiTokenFx = createEffect(getApiToken);
 export const getAuthStateFx = createEffect(getAuthState);
 export const updateUserFx = createEffect(updateUser);
+export const deleteUserFx = createEffect(deleteUser);
 
 export const $user = createStore<User | null>(null)
   .on(getUserFx.doneData, (_, user) => user)

@@ -10,22 +10,22 @@ export const LoginButton: React.FunctionComponent = () => {
   //   const token = useStore(viewerModel.$apiToken);
   //   const token1 = useStore(viewerModel.$token);
   return (
-    <>
-      <Button
-        onClick={() => {
-          viewerModel.loginRequested();
-          navigate('/profile');
-        }}
-        color="inherit"
-      >
-        Login
-      </Button>
-      {/* <Button onClick={() => console.log(user)} color="inherit">
+    <Button
+      onClick={() => {
+        viewerModel.loginRequested();
+        navigate('/profile');
+      }}
+      color="inherit"
+    >
+      Login
+    </Button>
+  );
+};
+{
+  /* <Button onClick={() => console.log(user)} color="inherit">
         USER
       </Button>
       <Button onClick={() => console.log(token)} color="inherit">
         TOKEN
-      </Button> */}
-    </>
-  );
-};
+      </Button> */
+}

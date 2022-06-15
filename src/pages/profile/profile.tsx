@@ -94,7 +94,7 @@ export const ProfilePage: React.FC = () => {
           </Box>
         ) : (
           <Typography variant="h6" color="initial">
-            User not find
+            User not found
           </Typography>
         )}
       </Box>
