@@ -56,7 +56,7 @@ export const ProfilePage: React.FC = () => {
               }}
             >
               <Typography variant="h4" color="initial">
-                {user.nickname}
+                {user.name}
               </Typography>
               <Box
                 sx={{
@@ -83,10 +83,10 @@ export const ProfilePage: React.FC = () => {
                   }}
                 >
                   <Typography variant="h6" color="initial">
-                    {user.name}
+                    {user.email}
                   </Typography>
                   <Typography variant="h6" color="initial">
-                    +380969124049
+                    {user.phone_number || '-'}
                   </Typography>
                 </Box>
               </Box>

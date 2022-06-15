@@ -1,18 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useStore } from 'effector-react';
-import {
-  Box,
-  TextField,
-  Container,
-  Typography,
-  Button,
-  AddCircleOutlinedIcon,
-  MyTextField,
-} from 'shared';
+import { Box, TextField, Container, Typography, Button, AddCircleOutlinedIcon } from 'shared';
 import { viewerModel } from 'entities/viewer';
+import { featureModel } from 'features';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
   const user = useStore(viewerModel.$user);
+  const navigate = useNavigate();
+
   return (
     <Container maxWidth="md">
       <Box
@@ -36,7 +32,13 @@ export const UpdateUserForm: React.FunctionComponent = () => {
               borderRadius: '33px',
             }}
           >
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                featureModel.userUpdateRequested();
+                navigate('/profile');
+              }}
+            >
               <Box
                 sx={{
                   display: 'flex',
@@ -49,42 +51,32 @@ export const UpdateUserForm: React.FunctionComponent = () => {
                 <Typography variant="h4" color="initial">
                   Edit Profile
                 </Typography>
-
                 <TextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
+                  sx={{ mb: '7px' }}
                   label="Name"
                   variant="outlined"
                   name="name"
+                  value={user.name}
+                  onChange={(e) => viewerModel.userChanged({ name: e.target.value })}
                 />
                 <TextField
-                  sx={{
-                    mb: '7px',
-                  }}
-                  id="outlined-basic"
+                  sx={{ mb: '7px' }}
                   label="E-mail"
                   variant="outlined"
                   name="email"
+                  value={user.email}
+                  onChange={(e) => viewerModel.userChanged({ email: e.target.value })}
                 />
-                <TextField
-                  sx={{
-                    mb: '7px',
-                  }}
+                {/* <TextField
+                  sx={{ mb: '7px' }}
                   id="outlined-basic"
                   label="Phone"
                   variant="outlined"
                   name="phone_number"
-                />
-                <Button
-                  sx={{
-                    mb: '7px',
-                  }}
-                  variant="contained"
-                  component="label"
-                  color="primary"
-                >
+                  value={user.phone_number}
+                  onChange={(e) => viewerModel.userChanged({ phone_number: e.target.value })}
+                /> */}
+                <Button sx={{ mb: '7px' }} variant="contained" component="label" color="primary">
                   {' '}
                   <AddCircleOutlinedIcon /> Upload a file
                   <input type="file" hidden />
