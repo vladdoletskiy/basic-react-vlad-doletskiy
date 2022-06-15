@@ -5,4 +5,5 @@ export type User = {
   user_id: string;
   phone_number?: string;
   connection?: string;
+  picture: string;
 };

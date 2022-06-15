@@ -26,7 +26,7 @@ export const ProfilePage: React.FC = () => {
               height: '500px',
               backgroundColor: 'primary.light',
               borderRadius: '33px',
-              mt: '130px',
+              mt: '26px',
               mb: '40px',
             }}
           >
@@ -40,7 +40,7 @@ export const ProfilePage: React.FC = () => {
             >
               <Avatar
                 alt="Remy Sharp"
-                srcSet="https://citaty.info/files/styles/poster/public/characters/8604.jpg?itok=_bemMaL1"
+                srcSet={user.picture}
                 sx={{
                   width: { sm: '250px', md: '270px', xs: '200px' },
                   height: { sm: '250px', md: '270px', xs: '200px' },
