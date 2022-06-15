@@ -1,4 +1,10 @@
-export { Menu as MenuIcon, AddCircleOutlined as AddCircleOutlinedIcon } from '@mui/icons-material';
+export {
+  Menu as MenuIcon,
+  AddCircleOutlined as AddCircleOutlinedIcon,
+  DeleteForever as DeleteForeverIcon,
+  Edit as EditIcon,
+} from '@mui/icons-material';
+
 export {
   Box,
   Avatar,

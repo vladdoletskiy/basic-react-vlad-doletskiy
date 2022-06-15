@@ -3,7 +3,5 @@ export type User = {
   email: string;
   username: string;
   user_id: string;
-  phone_number?: string;
-  connection?: string;
-  picture: string;
+  picture?: string;
 };

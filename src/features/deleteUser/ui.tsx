@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button } from 'shared';
+import { Button, DeleteForeverIcon } from 'shared';
 
 export const DeleteUser: React.FunctionComponent = () => {
   return (
     <>
-      <Button color="inherit">Delete User</Button>
+      <Button variant="contained">
+        <DeleteForeverIcon />
+      </Button>
     </>
   );
 };

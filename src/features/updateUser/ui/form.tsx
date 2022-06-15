@@ -1,9 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from 'effector-react';
-import { Box, TextField, Container, Typography, Button, AddCircleOutlinedIcon } from 'shared';
+import {
+  Box,
+  TextField,
+  Container,
+  Typography,
+  Button,
+  AddCircleOutlinedIcon,
+  EditIcon,
+} from 'shared';
 import { viewerModel } from 'entities/viewer';
 import { featureModel } from 'features';
+import { DeleteUser } from 'features/deleteUser/ui';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
   const user = useStore(viewerModel.$user);
@@ -73,23 +82,22 @@ export const UpdateUserForm: React.FunctionComponent = () => {
                   label="Phone"
                   variant="outlined"
                   name="phone_number"
-                  value={user.phone_number}
-                  onChange={(e) => viewerModel.userChanged({ phone_number: e.target.value })}
+                  value={user.user_metadata.city}
+                  onChange={(e) => viewerModel.userChanged({ city: e.target.value })}
                 /> */}
+
                 <Button sx={{ mb: '7px' }} variant="contained" component="label" color="primary">
                   {' '}
                   <AddCircleOutlinedIcon /> Upload a file
                   <input type="file" hidden />
                 </Button>
-                <Button
-                  type="submit"
-                  sx={{
-                    mb: '7px',
-                  }}
-                  variant="contained"
-                >
-                  Edit
-                </Button>
+                <Box>
+                  {' '}
+                  <Button sx={{ mr: '17px' }} type="submit" variant="contained">
+                    <EditIcon />
+                  </Button>
+                  <DeleteUser />
+                </Box>
               </Box>
             </form>
           </Box>

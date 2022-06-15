@@ -9,7 +9,7 @@ export const login = () => auth0.loginWithPopup();
 export const logout = () => auth0.logout();
 export const getUser = async (): Promise<User> => {
   const user = await auth0.getUser();
-  if (!user?.nickname || !user?.name || !user?.sub || !user?.email)
+  if (!user?.nickname || !user?.name || !user?.sub || !user?.email || !user?.picture)
     throw new Error('Something went wrong..');
   console.log(user);
   return {
@@ -17,6 +17,7 @@ export const getUser = async (): Promise<User> => {
     email: user.email,
     username: user.nickname,
     user_id: user.sub,
+    picture: user.picture,
   };
 };
 
@@ -43,13 +44,13 @@ export const buildReq = async ({
 };
 
 export const updateUser = async (user: User): Promise<void> => {
-  user.connection = 'Username-Password-Authentication';
-  const { user_id, username, phone_number, ...body } = user;
+  const connection = { connection: 'Username-Password-Authentication' };
+  const { user_id, username, picture, ...partOfBody } = user;
+  const body = Object.assign(partOfBody, connection);
   await buildReq({ resource: user.user_id, method: 'PATCH', body });
 };
 
 export const deleteUser = async (user: User): Promise<void> => {
-  user.connection = 'Username-Password-Authentication';
   const { ...body } = user;
   await buildReq({ resource: user.user_id, method: 'DELETE', body });
 };

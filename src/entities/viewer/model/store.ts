@@ -12,7 +12,6 @@ export const getUserFx = createEffect(getUser);
 export const getTokenFx = createEffect(accessToken);
 export const getApiTokenFx = createEffect(getApiToken);
 export const getAuthStateFx = createEffect(getAuthState);
-
 export const updateUserFx = createEffect(updateUser);
 
 export const $user = createStore<User | null>(null)
