@@ -62,9 +62,9 @@ export const UpdateUserForm: React.FunctionComponent = () => {
                 </Typography>
                 <TextField
                   sx={{ mb: '7px' }}
-                  label="Name"
+                  label="Nickname"
                   variant="outlined"
-                  name="name"
+                  name="nickname"
                   value={user.name}
                   onChange={(e) => viewerModel.userChanged({ name: e.target.value })}
                 />
@@ -76,16 +76,24 @@ export const UpdateUserForm: React.FunctionComponent = () => {
                   value={user.email}
                   onChange={(e) => viewerModel.userChanged({ email: e.target.value })}
                 />
-                {/* <TextField
+                <TextField
                   sx={{ mb: '7px' }}
                   id="outlined-basic"
-                  label="Phone"
+                  label="Surname"
                   variant="outlined"
-                  name="phone_number"
-                  value={user.user_metadata.city}
-                  onChange={(e) => viewerModel.userChanged({ city: e.target.value })}
-                /> */}
-
+                  name="familyName"
+                  value={user.family_name}
+                  onChange={(e) => viewerModel.userChanged({ family_name: e.target.value })}
+                />
+                <TextField
+                  sx={{ mb: '7px' }}
+                  id="outlined-basic"
+                  label="Name"
+                  variant="outlined"
+                  name="givenName"
+                  value={user.given_name}
+                  onChange={(e) => viewerModel.userChanged({ given_name: e.target.value })}
+                />
                 <Button sx={{ mb: '7px' }} variant="contained" component="label" color="primary">
                   {' '}
                   <AddCircleOutlinedIcon /> Upload a file
