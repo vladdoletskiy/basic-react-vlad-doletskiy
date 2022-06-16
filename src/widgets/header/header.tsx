@@ -105,6 +105,7 @@ export const Header: React.FC = () => {
           >
             Basic React
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
               onClick={navToProfile}
@@ -117,7 +118,6 @@ export const Header: React.FC = () => {
             </Button>
           </Box>
           {!isAuth ? <LoginButton /> : <LogOutButton />}
-          <LoginButton />
         </Toolbar>
       </Container>
     </AppBar>

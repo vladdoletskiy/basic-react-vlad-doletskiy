@@ -111,7 +111,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
           </Box>
         ) : (
           <Typography variant="h6" color="initial">
-            User not found
+            Please log in
           </Typography>
         )}
       </Box>

@@ -1,5 +1,4 @@
-import { sample, createEvent, createStore, createEffect, attach } from 'effector';
-import { authConfig } from 'shared';
+import { sample, createEvent } from 'effector';
 import { viewerModel } from 'entities/viewer';
 import { User } from 'entities/viewer/model/types';
 
