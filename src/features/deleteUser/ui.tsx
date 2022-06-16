@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, DeleteForeverIcon } from 'shared';
 import { viewerModel } from 'entities/viewer';
-import { deleteUserModel } from 'features';
+import { deleteUserModel } from 'features/deleteUser';
 
 export const DeleteUser: React.FunctionComponent = () => {
   return (

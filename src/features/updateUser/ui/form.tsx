@@ -11,7 +11,7 @@ import {
   EditIcon,
 } from 'shared';
 import { viewerModel } from 'entities/viewer';
-import { featureModel } from 'features';
+import { updateUserModel } from 'features/updateUser';
 import { DeleteUser } from 'features/deleteUser/ui';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
@@ -44,7 +44,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                featureModel.userUpdateRequested();
+                updateUserModel.userUpdateRequested();
                 navigate('/profile');
               }}
             >
