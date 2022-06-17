@@ -9,16 +9,17 @@ export const login = () => auth0.loginWithPopup();
 export const logout = () => auth0.logout();
 export const getUser = async (): Promise<User> => {
   const user = await auth0.getUser();
-  if (
-    !user?.nickname ||
-    !user?.name ||
-    !user?.sub ||
-    !user?.email ||
-    !user?.picture ||
-    !user?.given_name ||
-    !user?.family_name
-  )
-    throw new Error('Something went wrong..');
+  console.log(user);
+  //   if (
+  //     !user?.nickname ||
+  //     !user?.name ||
+  //     !user?.sub ||
+  //     !user?.email ||
+  //     !user?.picture ||
+  //     !user?.given_name ||
+  //     !user?.family_name
+  //   )
+  //     throw new Error('Something went wrong..');
   console.log(user);
   return {
     name: user.name,
