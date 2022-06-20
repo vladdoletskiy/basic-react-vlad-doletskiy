@@ -16,6 +16,7 @@ import { DeleteUser } from 'features/deleteUser/ui';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
   const user = useStore(viewerModel.$user);
+  console.log(user);
   const navigate = useNavigate();
 
   return (
