@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from 'effector-react';
 import {
@@ -16,7 +16,6 @@ import { DeleteUser } from 'features/deleteUser/ui';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
   const user = useStore(viewerModel.$user);
-  console.log(user);
   const navigate = useNavigate();
 
   return (
@@ -61,6 +60,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
                 <Typography variant="h4" color="initial">
                   Edit Profile
                 </Typography>
+
                 <TextField
                   sx={{ mb: '7px' }}
                   label="Nickname"

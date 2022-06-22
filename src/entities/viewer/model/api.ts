@@ -9,7 +9,7 @@ export const login = () => auth0.loginWithPopup();
 export const logout = () => auth0.logout();
 export const getUser = async (): Promise<User> => {
   const user = await auth0.getUser();
-  console.log(user);
+  if (!user) throw new Error('Something went wrong..');
   //   if (
   //     !user?.nickname ||
   //     !user?.name ||
@@ -20,7 +20,6 @@ export const getUser = async (): Promise<User> => {
   //     !user?.family_name
   //   )
   //     throw new Error('Something went wrong..');
-  console.log(user);
   return {
     name: user.name,
     email: user.email,
@@ -33,7 +32,7 @@ export const getUser = async (): Promise<User> => {
 };
 
 export const getAuthState = (): Promise<boolean> => auth0.isAuthenticated();
-export const accessToken = (): Promise<string | undefined> => auth0.getTokenSilently();
+export const accessToken = (): Promise<string> => auth0.getTokenSilently();
 
 export const buildReq = async ({
   resource,
@@ -66,7 +65,6 @@ export const deleteUser = async (user: User): Promise<void> => {
   await buildReq({ resource: user.user_id, method: 'DELETE', body });
 };
 
-// Отримання токену для роботи з API
 export const getApiToken = async () => {
   return await axios(`https://dev-lp34u8l1.us.auth0.com/oauth/token`, {
     method: 'POST',
