@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { Box, Avatar, Container, Typography, CircularProgress } from 'shared';
+import { Box, Avatar, Container, Typography } from 'shared';
 import { viewerModel } from 'entities/viewer';
 
 export const ProfilePage: React.FC = () => {

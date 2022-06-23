@@ -1,4 +1,4 @@
-import { sample, createEvent, createStore, createEffect, attach } from 'effector';
+import { sample, createEvent, createStore, createEffect } from 'effector';
 import { User } from './types';
 import {
   getUser,
@@ -33,6 +33,14 @@ export const $apiToken = createStore<string>('').on(
   getApiTokenFx.doneData,
   (_, token) => token.data.access_token,
 );
+
+$token.watch((value) => {
+  console.log(value);
+});
+
+$apiToken.watch((value) => {
+  console.log(value);
+});
 
 sample({ clock: loginFx.doneData, target: getUserFx });
 sample({ clock: loginRequested, target: loginFx });
