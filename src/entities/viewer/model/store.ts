@@ -29,17 +29,9 @@ export const $user = createStore<User | null>(null)
   .on(userChanged, (user, partial) => (user ? { ...user, ...partial } : user));
 export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
 export const $token = createStore<string>('').on(getTokenFx.doneData, (_, token) => token);
-export const $apiToken = createStore<string>('').on(
-  getApiTokenFx.doneData,
-  (_, token) => token.data.access_token,
-);
-
-$token.watch((value) => {
-  console.log(value);
-});
-
-$apiToken.watch((value) => {
-  console.log(value);
+export const $apiToken = createStore<string>('').on(getApiTokenFx.doneData, (_, token) => {
+  localStorage.setItem('token', token.data.access_token);
+  return token.data.access_token;
 });
 
 sample({ clock: loginFx.doneData, target: getUserFx });

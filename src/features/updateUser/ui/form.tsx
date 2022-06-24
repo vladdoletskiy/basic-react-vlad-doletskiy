@@ -11,12 +11,20 @@ import {
   EditIcon,
 } from 'shared';
 import { viewerModel } from 'entities/viewer';
+import { User } from 'entities/viewer/model/types';
 import { updateUserModel } from 'features/updateUser';
 import { DeleteUser } from 'features/deleteUser/ui';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
   const user = useStore(viewerModel.$user);
   const navigate = useNavigate();
+
+  const editUserProfileFilds: { lable: string; key: keyof User }[] = [
+    { lable: 'Nickname', key: 'nickname' },
+    { lable: 'E-mail', key: 'email' },
+    { lable: 'Surname', key: 'surname' },
+    { lable: 'Name', key: 'name' },
+  ];
 
   return (
     <Container maxWidth="md">
@@ -60,41 +68,16 @@ export const UpdateUserForm: React.FunctionComponent = () => {
                 <Typography variant="h4" color="initial">
                   Edit Profile
                 </Typography>
-
-                <TextField
-                  sx={{ mb: '7px' }}
-                  label="Nickname"
-                  variant="outlined"
-                  name="nickname"
-                  value={user.name}
-                  onChange={(e) => viewerModel.userChanged({ name: e.target.value })}
-                />
-                <TextField
-                  sx={{ mb: '7px' }}
-                  label="E-mail"
-                  variant="outlined"
-                  name="email"
-                  value={user.email}
-                  onChange={(e) => viewerModel.userChanged({ email: e.target.value })}
-                />
-                <TextField
-                  sx={{ mb: '7px' }}
-                  id="outlined-basic"
-                  label="Surname"
-                  variant="outlined"
-                  name="familyName"
-                  value={user.family_name}
-                  onChange={(e) => viewerModel.userChanged({ family_name: e.target.value })}
-                />
-                <TextField
-                  sx={{ mb: '7px' }}
-                  id="outlined-basic"
-                  label="Name"
-                  variant="outlined"
-                  name="givenName"
-                  value={user.given_name}
-                  onChange={(e) => viewerModel.userChanged({ given_name: e.target.value })}
-                />
+                {editUserProfileFilds.map((item, index) => (
+                  <TextField
+                    key={index}
+                    sx={{ mb: '7px' }}
+                    label={item.key[0].toUpperCase() + item.key.slice(1)}
+                    variant="outlined"
+                    value={user[item.key]}
+                    onChange={(e) => viewerModel.userChanged({ [item.key]: e.target.value })}
+                  />
+                ))}
                 <Button sx={{ mb: '7px' }} variant="contained" component="label" color="primary">
                   {' '}
                   <AddCircleOutlinedIcon /> Upload a file

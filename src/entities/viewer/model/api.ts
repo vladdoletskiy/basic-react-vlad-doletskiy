@@ -10,22 +10,13 @@ export const logout = () => auth0.logout();
 export const getUser = async (): Promise<User> => {
   const user = await auth0.getUser();
   if (!user) throw new Error('Something went wrong..');
-  //   if (
-  //     !user?.nickname ||
-  //     !user?.name ||
-  //     !user?.sub ||
-  //     !user?.email ||
-  //     !user?.picture ||
-  //     !user?.given_name ||
-  //     !user?.family_name
-  //   )
-  //     throw new Error('Something went wrong..');
+  if (!user?.nickname || !user?.sub || !user?.email) throw new Error('Something went wrong..');
+
   return {
-    name: user.name,
-    email: user.email,
-    given_name: user.given_name,
-    family_name: user.family_name,
-    username: user.nickname,
+    email: user?.email,
+    surname: user?.given_name || '',
+    name: user?.given_name || '',
+    nickname: user.nickname,
     user_id: user.sub,
     picture: user.picture,
   };
@@ -46,7 +37,7 @@ export const buildReq = async ({
   await axios(`https://dev-lp34u8l1.us.auth0.com/api/v2/users/${resource}`, {
     method: method,
     headers: {
-      authorization: `Bearer ${authConfig.tokenApi}`,
+      authorization: `Bearer ${localStorage.getItem('token')}`,
       'content-type': 'application/json',
     },
     data: body,
@@ -54,10 +45,17 @@ export const buildReq = async ({
 };
 
 export const updateUser = async (user: User): Promise<void> => {
-  const connection = { connection: 'Username-Password-Authentication' };
-  const { user_id, username, picture, ...partOfBody } = user;
-  const body = Object.assign(partOfBody, connection);
-  await buildReq({ resource: user.user_id, method: 'PATCH', body });
+  await buildReq({
+    resource: user.user_id,
+    method: 'PATCH',
+    body: {
+      nickname: user.nickname,
+      email: user.email,
+      given_name: user.name,
+      family_name: user.surname,
+      connection: 'Username-Password-Authentication',
+    },
+  });
 };
 
 export const deleteUser = async (user: User): Promise<void> => {
