@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, DeleteForeverIcon } from 'shared';
-import { viewerModel } from 'entities/viewer';
 import { deleteUserModel } from 'features/deleteUser';
 
 export const DeleteUser: React.FunctionComponent = () => {
@@ -8,7 +7,6 @@ export const DeleteUser: React.FunctionComponent = () => {
     <Button
       onClick={() => {
         deleteUserModel.userDeleted();
-        viewerModel.logoutRequested();
       }}
       variant="contained"
     >

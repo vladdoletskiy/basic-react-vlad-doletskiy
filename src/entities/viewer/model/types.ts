@@ -4,5 +4,5 @@ export type User = {
   nickname: string;
   user_id: string;
   surname: string;
-  picture?: string;
+  picture: string;
 };
