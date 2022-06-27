@@ -5,6 +5,7 @@ import { deleteUserModel } from 'features/deleteUser';
 export const DeleteUser: React.FunctionComponent = () => {
   return (
     <Button
+      sx={{ width: 1 }}
       onClick={() => {
         deleteUserModel.userDeleted();
       }}
