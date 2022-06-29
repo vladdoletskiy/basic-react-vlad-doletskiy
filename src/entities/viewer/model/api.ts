@@ -14,17 +14,17 @@ export const getUser = async (): Promise<User> => {
 
   return {
     email: user.email,
-    surname: user?.given_name || ' ',
-    name: user?.given_name || ' ',
+    surname: user?.given_name || '',
+    name: user?.given_name || '',
     nickname: user.nickname,
-    user_id: user.sub,
+    userId: user.sub,
     picture: user.picture,
   };
 };
 
 export const getAuthState = (): Promise<boolean> => auth0.isAuthenticated();
 
-export const buildReq = async ({
+export const apiFactory = async ({
   resource,
   method,
   body,
@@ -44,8 +44,8 @@ export const buildReq = async ({
 };
 
 export const updateUser = async (user: User): Promise<void> => {
-  await buildReq({
-    resource: user.user_id,
+  await apiFactory({
+    resource: user.userId,
     method: 'PATCH',
     body: {
       nickname: user.nickname,
@@ -59,7 +59,7 @@ export const updateUser = async (user: User): Promise<void> => {
 
 export const deleteUser = async (user: User): Promise<void> => {
   const { ...body } = user;
-  await buildReq({ resource: user.user_id, method: 'DELETE', body });
+  await apiFactory({ resource: user.userId, method: 'DELETE', body });
 };
 
 export const getManagementToken = async () => {

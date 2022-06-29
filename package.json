@@ -28,6 +28,7 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "effector": "^22.3.0",
+    "effector-forms": "^0.0.24",
     "effector-react": "^22.0.6",
     "gh-pages": "^4.0.0",
     "react": "^18.0.0",

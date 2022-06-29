@@ -1,2 +1,2 @@
-export * as updateUserModel from './model/store';
+export * as updateUserModel from './model/updateUser';
 export * from './ui/form';

@@ -1,26 +1,21 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'effector-forms';
 import { useStore } from 'effector-react';
 import { Box, TextField, Typography, Button, EditIcon } from 'shared';
-import { viewerModel } from 'entities/viewer';
-import { User } from 'entities/viewer/model/types';
 import { updateUserModel } from 'features/updateUser';
+import { updateUserForm, validateFx } from '../model/updateUser';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
-  const user = useStore(viewerModel.$user);
+  const { fields, submit, eachValid } = useForm(updateUserForm);
   const navigate = useNavigate();
-  if (!user) throw new Error('Something went wrong..');
-  const userProfileFilds: { lable: string; key: keyof User }[] = [
-    { lable: 'Nickname', key: 'nickname' },
-    { lable: 'E-mail', key: 'email' },
-    { lable: 'Surname', key: 'surname' },
-    { lable: 'Name', key: 'name' },
-  ];
+  const validate = useStore(updateUserModel.validateFx.pending);
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        submit();
         updateUserModel.userUpdateRequested();
         navigate('/profile');
       }}
@@ -37,21 +32,56 @@ export const UpdateUserForm: React.FunctionComponent = () => {
         <Typography variant="h4" color="initial">
           Edit Profile
         </Typography>
-        {userProfileFilds.map((item, index) => (
-          <TextField
-            key={index}
-            sx={{ mb: '7px' }}
-            label={item.key[0].toUpperCase() + item.key.slice(1)}
-            variant="outlined"
-            value={user[item.key]}
-            onChange={(e) => viewerModel.userChanged({ [item.key]: e.target.value })}
-          />
-        ))}
+        <TextField
+          sx={{ mb: '7px' }}
+          label="Nickname"
+          variant="outlined"
+          onChange={(e) => fields.nickname.onChange(e.target.value)}
+        />
+        <Box>
+          {fields.nickname.errorText({
+            nickname: 'you must enter a nickname',
+          })}
+        </Box>
+        <TextField
+          sx={{ mb: '7px' }}
+          label="E-mail"
+          variant="outlined"
+          onChange={(e) => fields.email.onChange(e.target.value)}
+        />
+        <Box>
+          {fields.email.errorText({
+            email: 'you must enter a valid email address',
+          })}
+        </Box>
+        <TextField
+          sx={{ mb: '7px' }}
+          label="Surname"
+          variant="outlined"
+          onChange={(e) => fields.surname.onChange(e.target.value)}
+        />
+        <Box>
+          {fields.surname.errorText({
+            surname: 'you must enter the surname',
+          })}
+        </Box>
+        <TextField
+          sx={{ mb: '7px' }}
+          label="Name"
+          variant="outlined"
+          onChange={(e) => fields.name.onChange(e.target.value)}
+        />
+        <Box>
+          {fields.name.errorText({
+            name: 'you must enter the name',
+          })}
+        </Box>
         <Box>
           {' '}
           <Button
             sx={{ mb: '5px', width: '100px', position: 'relative', right: '52px' }}
             type="submit"
+            disabled={!eachValid || validate}
             variant="contained"
           >
             <EditIcon />
