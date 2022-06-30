@@ -1,5 +1,6 @@
 import { sample, createEvent, createStore, createEffect } from 'effector';
-import { User } from './types';
+import { guestUser } from 'shared';
+import { User, GuestUser } from './types';
 import {
   getUser,
   login,
@@ -22,7 +23,7 @@ export const getAuthStateFx = createEffect(getAuthState);
 export const updateUserFx = createEffect(updateUser);
 export const deleteUserFx = createEffect(deleteUser);
 
-export const $user = createStore<User | null>(null)
+export const $user = createStore<User | GuestUser>(guestUser)
   .on(getUserFx.doneData, (_, user) => user)
   .on(userChanged, (user, partial) => (user ? { ...user, ...partial } : user));
 export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
