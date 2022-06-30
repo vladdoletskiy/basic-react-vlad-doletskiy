@@ -5,6 +5,7 @@ import { viewerModel } from 'entities/viewer';
 
 export const ProfilePage: React.FC = () => {
   const user = useStore(viewerModel.$user);
+  const isAuth = useStore(viewerModel.$isAuth);
   return (
     <Container maxWidth="md">
       <Box
@@ -16,7 +17,7 @@ export const ProfilePage: React.FC = () => {
           height: 'calc(100vh - 65.3px)',
         }}
       >
-        {user ? (
+        {isAuth ? (
           <Box
             sx={{
               display: 'flex',

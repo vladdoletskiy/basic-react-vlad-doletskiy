@@ -6,7 +6,3 @@ export type User = {
   surname: string;
   picture: string;
 };
-
-export type GuestUser = {
-  nickname: string;
-};

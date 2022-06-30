@@ -23,7 +23,7 @@ export const getAuthStateFx = createEffect(getAuthState);
 export const updateUserFx = createEffect(updateUser);
 export const deleteUserFx = createEffect(deleteUser);
 
-export const $user = createStore<User | GuestUser>(guestUser)
+export const $user = createStore<User>(guestUser)
   .on(getUserFx.doneData, (_, user) => user)
   .on(userChanged, (user, partial) => (user ? { ...user, ...partial } : user));
 export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
