@@ -1,10 +1,10 @@
 import { sample, createEvent } from 'effector';
 import { viewerModel } from 'entities/viewer';
 
-export const userDeleted = createEvent();
+export const userDeletetion = createEvent();
 
 sample({
-  clock: userDeleted,
+  clock: userDeletetion,
   source: viewerModel.$user,
   fn: (user) => {
     if (!user) throw new Error('Failed to delete User');

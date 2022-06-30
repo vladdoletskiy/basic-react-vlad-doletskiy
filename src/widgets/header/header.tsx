@@ -12,7 +12,7 @@ import {
   Toolbar,
   AppBar,
   MenuIcon,
-} from 'shared';
+} from 'shared/ui/mui';
 import { viewerModel } from 'entities/viewer';
 import { LoginButton, LogOutButton } from 'entities/viewer/ui';
 

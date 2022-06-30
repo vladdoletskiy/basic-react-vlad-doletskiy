@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'effector-forms';
 import { useStore } from 'effector-react';
-import { Box, TextField, Typography, Button, EditIcon } from 'shared';
-import { updateUserModel } from 'features/updateUser';
-import { updateUserForm, validateFx } from '../model/updateUser';
+import { Box, TextField, Typography, Button, EditIcon } from 'shared/ui/mui';
+import { updateUserModel } from 'features/user-update';
+import { updateUserForm } from '../model/user-update';
 
 export const UpdateUserForm: React.FunctionComponent = () => {
   const { fields, submit, eachValid } = useForm(updateUserForm);

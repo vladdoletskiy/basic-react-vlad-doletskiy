@@ -1,6 +1,6 @@
 import { sample, createEvent, createStore, createEffect } from 'effector';
 import { guestUser } from 'shared';
-import { User, GuestUser } from './types';
+import { User } from './types';
 import {
   getUser,
   login,

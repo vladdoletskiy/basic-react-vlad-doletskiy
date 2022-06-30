@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography } from 'shared';
+import { Box, Container, Typography } from 'shared/ui/mui';
 
 export const HomePage: React.FC = () => {
   return (

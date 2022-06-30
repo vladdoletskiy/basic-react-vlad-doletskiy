@@ -1,12 +1,13 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { Box, Container, Typography } from 'shared';
+import { Box, Container, Typography } from 'shared/ui/mui';
 import { viewerModel } from 'entities/viewer';
-import { UpdateUserForm } from 'features/updateUser';
-import { DeleteUser } from 'features/deleteUser';
+import { UpdateUserForm } from 'features/user-update';
+import { DeleteUser } from 'features/user-delete';
 
 export const UpdateUserPage: React.FunctionComponent = () => {
   const user = useStore(viewerModel.$user);
+  const isAuth = useStore(viewerModel.$isAuth);
 
   return (
     <Container maxWidth="md">
@@ -19,7 +20,7 @@ export const UpdateUserPage: React.FunctionComponent = () => {
           height: 'calc(100vh - 65px)',
         }}
       >
-        {user ? (
+        {isAuth ? (
           <Box
             sx={{
               display: 'flex',

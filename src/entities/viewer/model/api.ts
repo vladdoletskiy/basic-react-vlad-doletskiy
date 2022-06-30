@@ -58,8 +58,7 @@ export const updateUser = async (user: User): Promise<void> => {
 };
 
 export const deleteUser = async (user: User): Promise<void> => {
-  const { ...body } = user;
-  await apiFactory({ resource: user.userId, method: 'DELETE', body });
+  await apiFactory({ resource: user.userId, method: 'DELETE', body: null });
 };
 
 export const getManagementToken = async () => {

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Button, DeleteForeverIcon } from 'shared';
-import { deleteUserModel } from 'features/deleteUser';
+import { Button, DeleteForeverIcon } from 'shared/ui/mui';
+import { deleteUserModel } from 'features/user-delete';
 
 export const DeleteUser: React.FunctionComponent = () => {
   return (
     <Button
       sx={{ width: 1 }}
       onClick={() => {
-        deleteUserModel.userDeleted();
+        deleteUserModel.userDeletetion();
       }}
       variant="contained"
     >
