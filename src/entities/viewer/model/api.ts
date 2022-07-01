@@ -9,8 +9,9 @@ export const login = () => auth0.loginWithPopup();
 export const logout = () => auth0.logout();
 export const getUser = async (): Promise<User> => {
   const user = await auth0.getUser();
-  if (!user?.nickname || !user?.sub || !user?.email || !user.picture)
+  if (!user?.nickname || !user?.sub || !user?.email || !user.picture) {
     throw new Error('Something went wrong..');
+  }
 
   return {
     email: user.email,
