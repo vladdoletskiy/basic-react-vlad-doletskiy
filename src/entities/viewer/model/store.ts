@@ -1,5 +1,6 @@
 import { sample, createEvent, createStore, createEffect } from 'effector';
 import { guestUser } from 'shared';
+import { setToken, authConfig } from 'shared/api';
 import { User } from './types';
 import {
   getUser,
@@ -22,18 +23,15 @@ export const getManagementTokenFx = createEffect(getManagementToken);
 export const getAuthStateFx = createEffect(getAuthState);
 export const updateUserFx = createEffect(updateUser);
 export const deleteUserFx = createEffect(deleteUser);
+const setTokenFx = createEffect(setToken);
 
 export const $user = createStore<User>(guestUser)
   .on(getUserFx.doneData, (_, user) => user)
   .on(userChanged, (user, partial) => (user ? { ...user, ...partial } : user));
+userChanged.watch(() => {
+  console.log('userChanged: authConfig: ', authConfig);
+});
 export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
-export const $managementToken = createStore<string>('').on(
-  getManagementTokenFx.doneData,
-  (_, token) => {
-    localStorage.setItem('token', token.data.access_token);
-    return token.data.access_token;
-  },
-);
 
 sample({ clock: loginFx.doneData, target: getUserFx });
 sample({ clock: loginRequested, target: loginFx });
@@ -41,3 +39,4 @@ sample({ clock: logoutRequested, target: logoutFx });
 sample({ clock: loginFx.doneData, target: getAuthStateFx });
 sample({ clock: loginFx.doneData, target: getManagementTokenFx });
 sample({ clock: deleteUserFx.doneData, target: logoutFx });
+sample({ clock: getManagementTokenFx.doneData, target: setTokenFx });

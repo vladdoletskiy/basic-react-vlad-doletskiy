@@ -6,7 +6,7 @@ import { Box, TextField, Typography, Button, EditIcon } from 'shared/ui/mui';
 import { updateUserModel } from 'features/user-update';
 import { updateUserForm } from '../model/user-update';
 
-export const UpdateUserForm: React.FunctionComponent = () => {
+export const UpdateUserForm: React.FC = () => {
   const { fields, submit, eachValid } = useForm(updateUserForm);
   const navigate = useNavigate();
   const validate = useStore(updateUserModel.validateFx.pending);
@@ -36,6 +36,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
           sx={{ mb: '7px' }}
           label="Nickname"
           variant="outlined"
+          value={fields.nickname.value}
           onChange={(e) => fields.nickname.onChange(e.target.value)}
         />
         <Box>
@@ -47,6 +48,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
           sx={{ mb: '7px' }}
           label="E-mail"
           variant="outlined"
+          value={fields.email.value}
           onChange={(e) => fields.email.onChange(e.target.value)}
         />
         <Box>
@@ -58,6 +60,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
           sx={{ mb: '7px' }}
           label="Surname"
           variant="outlined"
+          value={fields.surname.value}
           onChange={(e) => fields.surname.onChange(e.target.value)}
         />
         <Box>
@@ -69,6 +72,7 @@ export const UpdateUserForm: React.FunctionComponent = () => {
           sx={{ mb: '7px' }}
           label="Name"
           variant="outlined"
+          value={fields.name.value}
           onChange={(e) => fields.name.onChange(e.target.value)}
         />
         <Box>

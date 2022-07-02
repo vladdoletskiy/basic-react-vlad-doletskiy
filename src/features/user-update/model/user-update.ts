@@ -10,22 +10,22 @@ export const userUpdateRequested = createEvent();
 export const updateUserForm = createForm({
   fields: {
     email: {
-      init: '' as string,
+      init: '',
       rules: [rules.email()],
       validateOn: ['change'],
     },
     name: {
-      init: '' as string,
+      init: '',
       rules: [rules.minLength(3)],
       validateOn: ['change'],
     },
     surname: {
-      init: '' as string,
+      init: '',
       rules: [rules.minLength(3)],
       validateOn: ['change'],
     },
     nickname: {
-      init: '' as string,
+      init: '',
       rules: [rules.minLength(3)],
       validateOn: ['change'],
     },
@@ -54,8 +54,10 @@ sample({
   target: viewerModel.updateUserFx,
 });
 
-// Can't insert value from store to inputs.
-forward({
-  from: viewerModel.getUserFx.doneData,
-  to: updateUserForm.setForm,
+sample({
+  clock: viewerModel.getUserFx.doneData,
+  fn: (user) => {
+    return user;
+  },
+  target: updateUserForm.setForm,
 });
