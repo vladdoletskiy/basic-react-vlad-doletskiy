@@ -40,9 +40,8 @@ export const UpdateUserForm: React.FC = () => {
           Edit Profile
         </Typography>
         {userProfileFilds.map((item, index) => (
-          <>
+          <Box key={index}>
             <TextField
-              key={index}
               sx={{ mb: '4px', mt: '5px' }}
               label={item.lable}
               variant="outlined"
@@ -50,10 +49,8 @@ export const UpdateUserForm: React.FC = () => {
               value={item.key.value}
               onChange={(e) => item.key.onChange(e.target.value)}
             />
-            <Box key={Date.now()} sx={{ color: 'error.main' }}>
-              {item.key.errorText()}
-            </Box>
-          </>
+            <Box sx={{ color: 'error.main' }}>{item.key.errorText()}</Box>
+          </Box>
         ))}
         <Box>
           {' '}
