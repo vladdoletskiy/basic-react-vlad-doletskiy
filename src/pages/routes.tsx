@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { toProfile, toEditProfile } from 'shared';
 import { ProfilePage } from './profile';
 import { HomePage } from './home';
 import { UpdateUserPage } from './update-profile';
@@ -7,8 +8,8 @@ export const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/edit" element={<UpdateUserPage />} />
+      <Route path={toProfile} element={<ProfilePage />} />
+      <Route path={toEditProfile} element={<UpdateUserPage />} />
     </Routes>
   );
 };

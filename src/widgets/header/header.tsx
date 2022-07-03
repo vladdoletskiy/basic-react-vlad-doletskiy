@@ -13,6 +13,7 @@ import {
   AppBar,
   MenuIcon,
 } from 'shared/ui/mui';
+import { toProfile, toEditProfile } from 'shared';
 import { viewerModel } from 'entities/viewer';
 import { LoginButton, LogOutButton } from 'entities/viewer/ui';
 
@@ -27,12 +28,12 @@ export const Header: React.FC = () => {
 
   const navToProfile = (): void => {
     handleCloseNavMenu();
-    navigate('/profile');
+    navigate(toProfile);
   };
 
   const navToEdit = (): void => {
     handleCloseNavMenu();
-    navigate('/edit');
+    navigate(toEditProfile);
   };
 
   return (

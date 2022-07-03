@@ -6,9 +6,5 @@ export const userDeletetion = createEvent();
 sample({
   clock: userDeletetion,
   source: viewerModel.$user,
-  fn: (user) => {
-    if (!user) throw new Error('Failed to delete User');
-    return user;
-  },
   target: viewerModel.deleteUserFx,
 });

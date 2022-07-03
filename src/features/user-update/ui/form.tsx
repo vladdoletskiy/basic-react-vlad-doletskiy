@@ -1,15 +1,24 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'effector-forms';
+import { ConnectedField, useForm } from 'effector-forms';
 import { useStore } from 'effector-react';
+import { toProfile } from 'shared';
 import { Box, TextField, Typography, Button, EditIcon } from 'shared/ui/mui';
 import { updateUserModel } from 'features/user-update';
-import { updateUserForm } from '../model/user-update';
 
 export const UpdateUserForm: React.FC = () => {
-  const { fields, submit, eachValid } = useForm(updateUserForm);
+  const { fields, submit, eachValid, hasError, errorText } = useForm(
+    updateUserModel.updateUserForm,
+  );
   const navigate = useNavigate();
   const validate = useStore(updateUserModel.validateFx.pending);
+
+  const userProfileFilds: { lable: string; key: ConnectedField<string> }[] = [
+    { lable: 'Nickname', key: fields.nickname },
+    { lable: 'E-mail', key: fields.email },
+    { lable: 'Surname', key: fields.surname },
+    { lable: 'Name', key: fields.name },
+  ];
 
   return (
     <form
@@ -17,7 +26,7 @@ export const UpdateUserForm: React.FC = () => {
         e.preventDefault();
         submit();
         updateUserModel.userUpdateRequested();
-        navigate('/profile');
+        navigate(toProfile);
       }}
     >
       <Box
@@ -32,54 +41,22 @@ export const UpdateUserForm: React.FC = () => {
         <Typography variant="h4" color="initial">
           Edit Profile
         </Typography>
-        <TextField
-          sx={{ mb: '7px' }}
-          label="Nickname"
-          variant="outlined"
-          value={fields.nickname.value}
-          onChange={(e) => fields.nickname.onChange(e.target.value)}
-        />
-        <Box>
-          {fields.nickname.errorText({
-            nickname: 'you must enter a nickname',
-          })}
-        </Box>
-        <TextField
-          sx={{ mb: '7px' }}
-          label="E-mail"
-          variant="outlined"
-          value={fields.email.value}
-          onChange={(e) => fields.email.onChange(e.target.value)}
-        />
-        <Box>
-          {fields.email.errorText({
-            email: 'you must enter a valid email address',
-          })}
-        </Box>
-        <TextField
-          sx={{ mb: '7px' }}
-          label="Surname"
-          variant="outlined"
-          value={fields.surname.value}
-          onChange={(e) => fields.surname.onChange(e.target.value)}
-        />
-        <Box>
-          {fields.surname.errorText({
-            surname: 'you must enter the surname',
-          })}
-        </Box>
-        <TextField
-          sx={{ mb: '7px' }}
-          label="Name"
-          variant="outlined"
-          value={fields.name.value}
-          onChange={(e) => fields.name.onChange(e.target.value)}
-        />
-        <Box>
-          {fields.name.errorText({
-            name: 'you must enter the name',
-          })}
-        </Box>
+        {userProfileFilds.map((item, index) => (
+          <>
+            <TextField
+              key={index}
+              sx={{ mb: '4px', mt: '5px' }}
+              label={item.lable}
+              variant="outlined"
+              className={item.key.hasError() ? 'invalid' : ''}
+              value={item.key.value}
+              onChange={(e) => item.key.onChange(e.target.value)}
+            />
+            <Box key={Date.now()} sx={{ color: 'error.main' }}>
+              {item.key.errorText()}
+            </Box>
+          </>
+        ))}
         <Box>
           {' '}
           <Button

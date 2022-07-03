@@ -28,9 +28,6 @@ const setTokenFx = createEffect(setToken);
 export const $user = createStore<User>(guestUser)
   .on(getUserFx.doneData, (_, user) => user)
   .on(userChanged, (user, partial) => (user ? { ...user, ...partial } : user));
-userChanged.watch(() => {
-  console.log('userChanged: authConfig: ', authConfig);
-});
 export const $isAuth = createStore<boolean>(false).on(getAuthStateFx.doneData, (_, res) => res);
 
 sample({ clock: loginFx.doneData, target: getUserFx });

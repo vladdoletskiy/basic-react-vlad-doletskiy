@@ -6,7 +6,6 @@ import { UpdateUserForm } from 'features/user-update';
 import { DeleteUser } from 'features/user-delete';
 
 export const UpdateUserPage: React.FunctionComponent = () => {
-  const user = useStore(viewerModel.$user);
   const isAuth = useStore(viewerModel.$isAuth);
 
   return (
