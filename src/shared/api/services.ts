@@ -20,7 +20,7 @@ userManagementService.interceptors.request.use(
     };
   },
   (err) => {
-    console.log('err: ', err);
+    throw new Error(err);
   },
 );
 

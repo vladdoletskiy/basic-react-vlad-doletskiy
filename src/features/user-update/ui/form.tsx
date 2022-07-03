@@ -7,9 +7,7 @@ import { Box, TextField, Typography, Button, EditIcon } from 'shared/ui/mui';
 import { updateUserModel } from 'features/user-update';
 
 export const UpdateUserForm: React.FC = () => {
-  const { fields, submit, eachValid, hasError, errorText } = useForm(
-    updateUserModel.updateUserForm,
-  );
+  const { fields, submit, eachValid } = useForm(updateUserModel.updateUserForm);
   const navigate = useNavigate();
   const validate = useStore(updateUserModel.validateFx.pending);
 

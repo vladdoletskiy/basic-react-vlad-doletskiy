@@ -1,6 +1,6 @@
 import { sample, createEvent, createStore, createEffect } from 'effector';
 import { guestUser } from 'shared';
-import { setToken, authConfig } from 'shared/api';
+import { setToken } from 'shared/api';
 import { User } from './types';
 import {
   getUser,
