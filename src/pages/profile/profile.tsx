@@ -1,10 +1,11 @@
 import React from 'react';
 import { useStore } from 'effector-react';
-import { Box, Avatar, Container, Typography } from 'shared';
+import { Box, Avatar, Container, Typography } from 'shared/ui/mui';
 import { viewerModel } from 'entities/viewer';
 
 export const ProfilePage: React.FC = () => {
   const user = useStore(viewerModel.$user);
+  const isAuth = useStore(viewerModel.$isAuth);
   return (
     <Container maxWidth="md">
       <Box
@@ -16,7 +17,7 @@ export const ProfilePage: React.FC = () => {
           height: 'calc(100vh - 65.3px)',
         }}
       >
-        {user ? (
+        {isAuth ? (
           <Box
             sx={{
               display: 'flex',
@@ -26,7 +27,7 @@ export const ProfilePage: React.FC = () => {
               height: '500px',
               backgroundColor: 'primary.light',
               borderRadius: '33px',
-              mt: '130px',
+              mt: '26px',
               mb: '40px',
             }}
           >
@@ -40,7 +41,7 @@ export const ProfilePage: React.FC = () => {
             >
               <Avatar
                 alt="Remy Sharp"
-                srcSet="https://citaty.info/files/styles/poster/public/characters/8604.jpg?itok=_bemMaL1"
+                srcSet={user.picture}
                 sx={{
                   width: { sm: '250px', md: '270px', xs: '200px' },
                   height: { sm: '250px', md: '270px', xs: '200px' },
@@ -58,9 +59,6 @@ export const ProfilePage: React.FC = () => {
               <Typography variant="h4" color="initial">
                 {user.nickname}
               </Typography>
-              <Typography variant="subtitle1" color="initial">
-                Wizard
-              </Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -76,18 +74,9 @@ export const ProfilePage: React.FC = () => {
                     textAlign: 'right',
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      pt: '15px',
-                    }}
-                  >
-                    City
-                  </Typography>
-                  <Typography variant="h6">Country</Typography>
-                  <Typography variant="h6">DoB</Typography>
                   <Typography variant="h6">Email</Typography>
-                  <Typography variant="h6">Phone</Typography>
+                  <Typography variant="h6">Surname</Typography>
+                  <Typography variant="h6">Name</Typography>
                 </Box>
 
                 <Box
@@ -95,26 +84,14 @@ export const ProfilePage: React.FC = () => {
                     fontWeight: '500',
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    color="initial"
-                    sx={{
-                      pt: '15px',
-                    }}
-                  >
-                    London
+                  <Typography variant="h6" color="initial">
+                    {user.email}
                   </Typography>
                   <Typography variant="h6" color="initial">
-                    Great Britain
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    14.04.1999
+                    {user.surname}
                   </Typography>
                   <Typography variant="h6" color="initial">
                     {user.name}
-                  </Typography>
-                  <Typography variant="h6" color="initial">
-                    +380969124049
                   </Typography>
                 </Box>
               </Box>
@@ -122,7 +99,7 @@ export const ProfilePage: React.FC = () => {
           </Box>
         ) : (
           <Typography variant="h6" color="initial">
-            User not find
+            Please log in
           </Typography>
         )}
       </Box>
